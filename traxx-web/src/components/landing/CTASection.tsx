@@ -31,9 +31,9 @@ export function CTASection() {
             <Button
               variant="secondary"
               size="lg"
-              className="w-full sm:w-auto text-blue-600"
+              className="w-full sm:w-auto text-blue-600 font-bold"
             >
-              Book A Demo
+              Book a Walkthrough
             </Button>
             <Link href="#start-trial" className="w-full sm:w-auto">
               <Button

@@ -22,7 +22,7 @@ export function HeroSection() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
               Time To Keep Your Logistics
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">
+              <span className="text-blue-600 dark:text-blue-400">
                 Under Control
               </span>
             </h1>
