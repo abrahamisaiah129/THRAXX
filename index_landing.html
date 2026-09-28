@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traxx | Your Logistics, Under Control</title>
+  <meta name="description" content="Traxx gives Nigerian businesses live GPS visibility, automated flag detection, and a complete audit trail for every vehicle on their payroll. Try free for 7 days." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Traxx: Fleet Intelligence Platform for Nigeria" />
+  <meta property="og:description" content="Live GPS tracking, shift control, and automated flag detection for logistics fleets across Nigeria." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://traxx.ng" />
+  <link rel="canonical" href="https://traxx.ng" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232F5CFF'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='22' fill='white' letter-spacing='1'>TX</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reset and base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 16px; }
+
+    /* Design tokens */
+    :root {
+      --blue:         #2F5CFF;
+      --blue-hover:   #1F45DB;
+      --blue-light:   #6C8FFF;
+      --blue-50:      #EEF2FF;
+      --blue-100:     #D6E0FF;
+      --blue-border:  rgba(47,92,255,0.18);
+
+      --amber:        #EE9F1E;
+      --amber-bg:     #FFF4DF;
+
+      --navy:         #0B0F1C;
+      --navy-soft:    #111729;
+      --navy-card:    #17203A;
+      --navy-border:  rgba(255,255,255,0.09);
+
+      --green:        #12965E;
+      --green-bg:     #E6F7EF;
+      --red:          #D3452F;
+      --red-bg:       #FDECE9;
+
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+
+      --radius-xs: 6px;
+      --radius-sm: 9px;
+      --radius-md: 13px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-2xl: 30px;
+
+      --shadow-xs: 0 1px 3px rgba(6,11,24,0.05);
+      --shadow-sm: 0 2px 10px rgba(6,11,24,0.07);
+      --shadow-md: 0 6px 24px rgba(6,11,24,0.09);
+      --shadow-lg: 0 10px 36px rgba(6,11,24,0.11);
+      --shadow-xl: 0 20px 56px rgba(6,11,24,0.14);
+    }
+
+    [data-theme="light"] {
+      --bg:           #FFFFFF;
+      --bg-soft:      #F5F8FF;
+      --bg-card:      #FFFFFF;
+      --bg-muted:     #EEF2FA;
+
+      --text-primary:   #060B18;
+      --text-secondary: #3B4763;
+      --text-muted:     #69748C;
+      --text-faint:     #9AA4B8;
+
+      --border:       #E4E9F4;
+      --border-dark:  #CBD5E9;
+
+      --nav-bg:       rgba(255,255,255,0.92);
+    }
+
+    [data-theme="dark"] {
+      --bg:           #12151F;
+      --bg-soft:      #181C29;
+      --bg-card:      #1D2233;
+      --bg-muted:     #242A3D;
+
+      --text-primary:   #F3F5FA;
+      --text-secondary: #AFB6CB;
+      --text-muted:     #838AA0;
+      --text-faint:     #565D74;
+
+      --border:       #262C40;
+      --border-dark:  #333A52;
+
+      --nav-bg:       rgba(18,21,31,0.92);
+
+      --shadow-xs: 0 1px 3px rgba(0,0,0,0.18);
+      --shadow-sm: 0 2px 10px rgba(0,0,0,0.22);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.26);
+      --shadow-lg: 0 10px 36px rgba(0,0,0,0.3);
+      --shadow-xl: 0 20px 56px rgba(0,0,0,0.36);
+    }
+
+    body {
+      background:  var(--bg);
+      color:       var(--text-primary);
+      font-family: var(--font-body);
+      font-size:   16px;
+      line-height: 1.7;
+      overflow-x:  hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+    h1 { font-size: clamp(2.4rem, 5.4vw, 4.6rem); font-weight: 900; }
+    h2 { font-size: clamp(1.75rem, 3.1vw, 2.5rem); font-weight: 800; }
+    h3 { font-size: 1.05rem; font-weight: 700; }
+    p  { color: var(--text-secondary); }
+    a  { color: inherit; text-decoration: none; }
+
+    .mono { font-family: var(--font-mono); letter-spacing: -0.01em; }
+
+    /* Layout utilities */
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.06s; }
+    .reveal-d2 { transition-delay: 0.12s; }
+    .reveal-d3 { transition-delay: 0.18s; }
+    .reveal-d4 { transition-delay: 0.24s; }
+    .reveal-d5 { transition-delay: 0.30s; }
+    .reveal-d6 { transition-delay: 0.36s; }
+
+    /* Route divider, a signature motif used between sections */
+    .route-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 1px;
+      position: relative;
+      background: var(--border);
+      overflow: visible;
+    }
+    .route-divider-dot {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 5px var(--bg);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.15s, box-shadow 0.18s;
+      line-height: 1;
+    }
+    .btn:focus-visible { outline: 3px solid var(--blue-light); outline-offset: 3px; }
+    .btn-primary {
+      background: var(--blue);
+      color: #ffffff;
+      padding: 13px 24px;
+      box-shadow: 0 3px 14px rgba(47,92,255,0.32);
+    }
+    .btn-primary:hover { background: var(--blue-hover); transform: translateY(-1px); box-shadow: 0 5px 20px rgba(47,92,255,0.38); }
+    .btn-primary:active { transform: none; }
+    .btn-primary-lg { padding: 15px 30px; font-size: 15px; border-radius: var(--radius-md); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid var(--border-dark);
+      padding: 11px 22px;
+    }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-ghost-lg { padding: 14px 28px; font-size: 15px; border-radius: var(--radius-md); }
+    .btn-white { background: #ffffff; color: var(--blue); padding: 13px 24px; box-shadow: var(--shadow-sm); }
+    .btn-white:hover { background: #EEF2FF; transform: translateY(-1px); }
+    .btn-dark-ghost { background: transparent; color: rgba(255,255,255,0.72); border: 1.5px solid rgba(255,255,255,0.22); padding: 13px 24px; }
+    .btn-dark-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .btn-block { width: 100%; }
+
+    /* Navigation */
+    /* Navigation — floating rounded pill, inset from the viewport edges */
+    .nav {
+      position: fixed;
+      top: 16px; left: 0; right: 0;
+      z-index: 300;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+      pointer-events: none;
+    }
+    .nav-inner {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      max-width: 1180px;
+      height: 64px;
+      padding: 0 10px 0 20px;
+      border-radius: 999px;
+      background: var(--nav-bg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-sm);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.25s;
+    }
+    .nav.scrolled .nav-inner { box-shadow: var(--shadow-md); }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-mark {
+      width: 34px; height: 34px;
+      background: var(--blue);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900; font-size: 12px; letter-spacing: 0.04em;
+      color: #fff; flex-shrink: 0;
+      position: relative;
+    }
+    .nav-logo-mark::after {
+      content: '';
+      position: absolute;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      top: -2px; right: -2px;
+      border: 2px solid var(--bg);
+    }
+    .nav-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--text-primary); letter-spacing: -0.025em; }
+
+    /* Flat link cluster — no dropdowns, no chevrons */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      display: block;
+      position: relative;
+      padding: 9px 15px;
+      font-size: 14px; font-weight: 500;
+      font-family: var(--font-body);
+      color: var(--text-secondary);
+      border-radius: 999px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 15px; right: 15px; bottom: 6px;
+      height: 1.5px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    .nav-links a:hover { color: var(--text-primary); background: var(--bg-soft); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .nav-signin { font-size: 14px; font-weight: 500; color: var(--text-secondary); padding: 9px 14px; border-radius: 999px; transition: color 0.15s, background 0.15s; }
+    .nav-signin:hover { color: var(--text-primary); background: var(--bg-soft); }
+    .btn-nav-cta { padding: 10px 20px; font-size: 13.5px; border-radius: 999px; }
+
+    .theme-btn {
+      width: 36px; height: 36px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      flex-shrink: 0;
+    }
+    .theme-btn:hover { border-color: var(--blue); }
+    .theme-btn:focus-visible { outline: 3px solid var(--blue-light); outline-offset: 2px; }
+    .theme-btn svg { width: 15px; height: 15px; stroke: var(--text-muted); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.15s; }
+    .theme-btn:hover svg { stroke: var(--blue); }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+
+    .nav-mobile-btn {
+      display: none;
+      width: 36px; height: 36px;
+      align-items: center; justify-content: center;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-mobile-btn svg { width: 17px; height: 17px; stroke: var(--text-primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 92px; left: 20px; right: 20px;
+      max-height: calc(100vh - 112px);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 10px;
+      z-index: 299;
+      box-shadow: var(--shadow-lg);
+      overflow-y: auto;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 13px 16px; font-size: 15px; font-weight: 500; color: var(--text-secondary); border-radius: var(--radius-md); transition: background 0.15s; }
+    .mobile-menu a:hover { background: var(--bg-soft); color: var(--text-primary); }
+    .mobile-menu-divider { height: 1px; background: var(--border); margin: 6px 6px; }
+    .mobile-menu-cta { margin-top: 6px; padding: 4px 6px 6px; display: flex; flex-direction: column; gap: 8px; }
+    .mobile-menu-cta .btn { width: 100%; }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .nav-signin, .btn-nav-cta { display: none; }
+      .nav-mobile-btn { display: flex; }
+    }
+    @media (max-width: 500px) {
+      .nav { padding: 0 14px; top: 12px; }
+      .nav-inner { padding: 0 6px 0 16px; height: 58px; }
+      .mobile-menu { top: 82px; left: 14px; right: 14px; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 72px;
+      overflow: hidden;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      align-items: center;
+      gap: clamp(32px, 5vw, 64px);
+    }
+    .hero-glow {
+      position: absolute; top: -8%; left: 50%; transform: translateX(-50%);
+      width: min(920px, 120vw); height: 620px;
+      background: radial-gradient(ellipse at center, rgba(47,92,255,0.08) 0%, rgba(47,92,255,0.02) 45%, transparent 70%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .hero-glow {
+      background: radial-gradient(ellipse at center, rgba(47,92,255,0.13) 0%, rgba(47,92,255,0.04) 45%, transparent 70%);
+    }
+
+    .hero-fade-left, .hero-fade-right {
+      position: absolute; top: 0; bottom: 0; width: 220px; pointer-events: none; z-index: 1;
+    }
+    .hero-fade-left  { left: 0;  background: linear-gradient(to right, var(--bg), transparent); }
+    .hero-fade-right { right: 0; background: linear-gradient(to left,  var(--bg), transparent); }
+
+    .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; width: 100%; text-align: left; }
+
+    .hero-live-badge {
+      display: inline-flex; align-items: center;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-border);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-family: var(--font-display);
+      font-size: 12.5px; font-weight: 700; letter-spacing: 0.01em;
+      color: var(--blue);
+      margin-bottom: 26px;
+      animation: fadeSlideUp 0.5s ease both;
+    }
+    [data-theme="dark"] .hero-live-badge { background: rgba(47,92,255,0.14); }
+    .live-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; flex-shrink: 0; animation: livePulse 2.2s ease-in-out infinite; }
+    @keyframes livePulse { 0%,100% { box-shadow: 0 0 0 0 rgba(18,150,94,0.4); } 50% { box-shadow: 0 0 0 5px rgba(18,150,94,0); } }
+
+    .hero h1 { margin-bottom: 20px; animation: fadeSlideUp 0.5s 0.08s ease both; }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 34px;
+      animation: fadeSlideUp 0.5s 0.15s ease both;
+    }
+    .hero-ctas {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-start;
+      animation: fadeSlideUp 0.5s 0.22s ease both;
+      margin-bottom: 30px;
+    }
+
+    .hero-trust-line {
+      display: flex; align-items: center; gap: 12px;
+      animation: fadeSlideUp 0.5s 0.28s ease both;
+      margin-bottom: 44px;
+    }
+    .hero-trust-avatars { display: flex; align-items: center; flex-shrink: 0; }
+    .hero-trust-avatars span {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+      margin-left: -8px;
+      background: linear-gradient(135deg, var(--blue-light), var(--blue));
+    }
+    .hero-trust-avatars span:first-child { margin-left: 0; }
+    .hero-trust-avatars span:nth-child(2) { background: linear-gradient(135deg, #FFC24D, var(--amber)); }
+    .hero-trust-avatars span:nth-child(3) { background: linear-gradient(135deg, #5DDBA4, var(--green)); }
+    .hero-trust-avatars span:nth-child(4) { background: linear-gradient(135deg, #A6B2CE, var(--text-muted)); }
+    .hero-trust-text { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+
+    .hero-stats {
+      display: flex; align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      animation: fadeSlideUp 0.5s 0.34s ease both;
+      width: 100%;
+    }
+    .hero-stat { flex: 1; padding: 18px 10px; text-align: center; }
+    .hero-stat-num { font-family: var(--font-mono); font-size: 1.55rem; font-weight: 600; color: var(--blue); letter-spacing: -0.02em; line-height: 1; margin-bottom: 5px; }
+    .hero-stat-label { font-size: 11px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
+    .hero-stat-sep { width: 1px; align-self: stretch; background: var(--border); flex-shrink: 0; margin: 12px 0; }
+
+    /* Hero image cluster, a set of real logistics photographs arranged like a torn desk pile */
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 1 / 0.98;
+      justify-self: end;
+      animation: fadeSlideUp 0.6s 0.2s ease both;
+    }
+    .hv-card {
+      position: absolute;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border);
+    }
+    .hv-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hv-card-main {
+      top: 0; left: 0;
+      width: 68%; height: 86%;
+      background: var(--bg-muted);
+    }
+    .hv-card-main img { filter: saturate(0.85) contrast(1.02); }
+    .hv-card-tag {
+      position: absolute;
+      left: 16px; bottom: 16px;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(6,11,24,0.72);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: 12px; font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 100px;
+    }
+    .hv-card-tag .live-dot { animation: livePulse 2.2s ease-in-out infinite; }
+    .hv-card-photo {
+      top: 4%; right: 0;
+      width: 40%; height: 46%;
+      background: var(--bg-card);
+      z-index: 2;
+      display: flex; flex-direction: column;
+    }
+    .hv-card-photo img { flex: 1; min-height: 0; }
+    .hv-card-photo-label {
+      padding: 9px 11px;
+      font-size: 11px; font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .hv-card-ops {
+      bottom: 0; right: 6%;
+      width: 46%; height: 44%;
+      z-index: 3;
+    }
+    .hv-card-ops-media { position: relative; width: 100%; height: 100%; }
+    .hv-card-ops-media img { filter: saturate(0.7) brightness(0.85); }
+    .hv-card-ops-media::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(200deg, rgba(47,92,255,0.55), rgba(6,11,24,0.75));
+    }
+    .hv-card-ops-label {
+      position: absolute;
+      left: 14px; bottom: 14px; right: 14px;
+      z-index: 1;
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .hv-card-ops-sub {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-top: 2px;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-content { align-items: center; text-align: center; }
+      .hero-sub { max-width: 560px; }
+      .hero-ctas { justify-content: center; }
+      .hero-trust-line { justify-content: center; }
+      .hero-visual { justify-self: center; margin-top: 12px; }
+    }
+    @media (max-width: 640px) {
+      .hero-visual { aspect-ratio: 1 / 1.1; max-width: 380px; }
+      .hero-stats { flex-wrap: wrap; }
+      .hero-stat { flex: 1 1 50%; padding: 14px 10px; }
+      .hero-stat-sep:nth-child(6) { display: none; }
+    }
+    @media (max-width: 420px) {
+      .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: static; aspect-ratio: auto; max-width: 100%; }
+      .hv-card { position: static; width: 100%; height: 150px; }
+      .hv-card-main { grid-column: 1 / -1; height: 190px; }
+      .hv-card-photo { display: none; }
+    }
+
+    /* Trust strip */
+    .trust-strip { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 24px; }
+    .trust-strip-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; max-width: 940px; margin: 0 auto; }
+    .trust-label { font-size: 11.5px; font-weight: 600; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+    .trust-items { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; justify-content: center; }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--text-muted); }
+    .trust-item svg { width: 16px; height: 16px; stroke: var(--text-muted); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* Shared section styles */
+    .section { padding: 100px 0; }
+    .section-sm { padding: 76px 0; }
+    .section-alt { background: var(--bg-soft); }
+    .section-bordered { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .section-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 14px;
+    }
+    .section-kicker::before { content: ''; display: block; width: 18px; height: 2px; background: var(--blue); border-radius: 2px; flex-shrink: 0; }
+    .section-kicker-center::before { display: none; }
+    .section-title { margin-bottom: 14px; }
+    .section-sub { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; max-width: 540px; }
+    .section-header-center { text-align: center; margin-bottom: 58px; }
+    .section-header-center .section-sub { margin: 0 auto; }
+
+    /* Problem section */
+    .problem-section { background: var(--navy); padding: 100px 0; position: relative; overflow: hidden; }
+    .problem-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 18% 50%, rgba(47,92,255,0.13) 0%, transparent 60%),
+        radial-gradient(ellipse at 82% 50%, rgba(47,92,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .problem-inner { position: relative; z-index: 1; text-align: center; max-width: 780px; margin: 0 auto; padding: 0 24px; }
+    .problem-kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 22px; }
+    .problem-title { font-family: var(--font-display); font-size: clamp(1.9rem, 3.7vw, 2.9rem); font-weight: 900; color: #ffffff; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 22px; }
+    .problem-title .highlight { color: #7DA2FF; }
+    .problem-desc { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 48px; }
+    .problem-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .problem-pill { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 9px 16px; font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,0.76); }
+    .problem-pill svg { width: 14px; height: 14px; stroke: #FF9585; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* Getting started, three steps */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; margin-top: 8px; }
+    .steps-connector {
+      position: absolute;
+      top: 46px;
+      left: calc(100% / 6);
+      right: calc(100% / 6);
+      height: 1px;
+      background: repeating-linear-gradient(to right, var(--border-dark) 0, var(--border-dark) 6px, transparent 6px, transparent 12px);
+      z-index: 0;
+    }
+    .step-card { position: relative; z-index: 1; padding: 0 20px; }
+    .step-card:first-child { padding-left: 0; }
+    .step-card:last-child { padding-right: 0; }
+    .step-num {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 13px; font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+    }
+    .step-card.visible .step-num { border-color: var(--blue); color: var(--blue); background: var(--blue-50); }
+    [data-theme="dark"] .step-card.visible .step-num { background: rgba(47,92,255,0.16); }
+    .step-eyebrow { font-family: var(--font-display); font-style: italic; font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+    .step-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .step-card p { font-size: 14px; line-height: 1.75; }
+    @media (max-width: 860px) {
+      .steps-grid { grid-template-columns: 1fr; gap: 36px; }
+      .steps-connector { display: none; }
+      .step-card { padding: 0 !important; }
+    }
+
+    /* Without Traxx vs with Traxx comparison */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 0 auto; }
+    .compare-card { border-radius: var(--radius-2xl); padding: 34px 32px; }
+    .compare-card-without { background: var(--bg-muted); border: 1px solid var(--border); }
+    .compare-card-with { background: var(--blue); box-shadow: 0 16px 44px rgba(47,92,255,0.28); }
+    .compare-label {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .compare-card-without .compare-label { color: var(--text-muted); }
+    .compare-card-with .compare-label { color: #FFD98A; }
+    .compare-list { list-style: none; display: flex; flex-direction: column; }
+    .compare-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 13px 0;
+      font-size: 14.5px;
+      line-height: 1.55;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .compare-list li:last-child { border-bottom: none; }
+    .compare-card-without li { color: var(--text-secondary); }
+    .compare-card-with li { color: rgba(255,255,255,0.92); border-bottom-color: rgba(255,255,255,0.14); }
+    .compare-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+    .compare-icon-x { color: #B44636; }
+    [data-theme="dark"] .compare-icon-x { color: #FF9585; }
+    .compare-icon-check { color: #fff; }
+    @media (max-width: 760px) { .compare-grid { grid-template-columns: 1fr; } }
+
+    /* FAQ accordion */
+    .faq-list { display: flex; flex-direction: column; max-width: 720px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      background: none; border: none; text-align: left; cursor: pointer;
+      padding: 22px 4px;
+      font-family: var(--font-display);
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--text-primary);
+    }
+    .faq-icon {
+      width: 26px; height: 26px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      transition: border-color 0.25s, background 0.25s, transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-icon::before, .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--text-muted);
+      transition: background 0.25s;
+    }
+    .faq-icon::before { width: 10px; height: 1.5px; }
+    .faq-icon::after { width: 1.5px; height: 10px; }
+    .faq-item.open .faq-icon { border-color: var(--blue); background: var(--blue-50); transform: rotate(180deg); }
+    [data-theme="dark"] .faq-item.open .faq-icon { background: rgba(47,92,255,0.16); }
+    .faq-item.open .faq-icon::before, .faq-item.open .faq-icon::after { background: var(--blue); }
+    .faq-item.open .faq-icon::after { transform: scaleY(0); }
+    .faq-answer-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.38s cubic-bezier(0.4,0,0.2,1); }
+    .faq-item.open .faq-answer-wrap { grid-template-rows: 1fr; }
+    .faq-answer-inner { overflow: hidden; }
+    .faq-answer {
+      padding: 0 4px 24px;
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+    }
+    .faq-item.open .faq-answer { opacity: 1; transform: none; }
+
+    /* Features */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 30px 26px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+      border-radius: 3px 3px 0 0;
+    }
+    .feature-card:hover { box-shadow: var(--shadow-lg); border-color: var(--blue-border); transform: translateY(-3px); }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-icon {
+      width: 48px; height: 48px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-border);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    [data-theme="dark"] .feature-icon { background: rgba(47,92,255,0.16); }
+    .feature-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 9px; }
+    .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+
+    /* Use case carousel */
+    .carousel-wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .carousel-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 38px; gap: 20px; flex-wrap: wrap; }
+    .carousel-controls { display: flex; align-items: center; gap: 8px; }
+    .carousel-btn {
+      width: 42px; height: 42px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-dark);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.12s;
+      flex-shrink: 0;
+    }
+    .carousel-btn:hover { border-color: var(--blue); background: var(--blue-50); transform: scale(1.05); }
+    .carousel-btn:active { transform: scale(0.96); }
+    .carousel-btn svg { width: 15px; height: 15px; stroke: var(--text-secondary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .carousel-btn:hover svg { stroke: var(--blue); }
+    [data-theme="dark"] .carousel-btn:hover { background: rgba(47,92,255,0.16); }
+    .carousel-clip { overflow: hidden; border-radius: var(--radius-2xl); }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); will-change: transform; }
+    .c-slide {
+      min-width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-2xl);
+      padding: 54px 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .slide-counter { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-faint); margin-bottom: 10px; }
+    .slide-tag { display: inline-flex; align-items: center; background: var(--blue-50); border: 1px solid var(--blue-border); border-radius: 100px; padding: 4px 12px; font-size: 12px; font-weight: 700; color: var(--blue); margin-bottom: 18px; }
+    [data-theme="dark"] .slide-tag { background: rgba(47,92,255,0.16); color: #8FADFF; }
+    .slide-title { font-family: var(--font-display); font-size: clamp(1.25rem, 2.3vw, 1.85rem); font-weight: 800; letter-spacing: -0.025em; color: var(--text-primary); line-height: 1.2; margin-bottom: 14px; }
+    .slide-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.85; }
+    .slide-mock { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 20px 18px; display: flex; flex-direction: column; gap: 8px; min-height: 232px; justify-content: center; }
+    .mock-hdr { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 2px; }
+    .mock-row { display: flex; align-items: center; gap: 9px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 9px 12px; }
+    .mock-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .mock-txt { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--text-primary); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mock-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 5px; flex-shrink: 0; font-family: var(--font-body); }
+    .b-red   { background: rgba(211,69,47,0.10); color: #D3452F; }
+    .b-amber { background: rgba(238,159,30,0.12); color: #B4740A; }
+    .b-green { background: rgba(18,150,94,0.10); color: #12965E; }
+    .b-blue  { background: rgba(47,92,255,0.10); color: var(--blue); }
+    [data-theme="dark"] .b-red   { background: rgba(255,130,110,0.15); color: #FF8A6E; }
+    [data-theme="dark"] .b-amber { background: rgba(255,190,60,0.15); color: #FFC24D; }
+    [data-theme="dark"] .b-green { background: rgba(60,215,145,0.15); color: #5DDBA4; }
+    [data-theme="dark"] .b-blue  { background: rgba(110,150,255,0.16); color: #8FADFF; }
+    .mock-bar-row { display: flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 9px 12px; }
+    .bar-track { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 7px; margin-top: 24px; }
+    .c-dot { width: 7px; height: 7px; border-radius: 4px; background: var(--border-dark); cursor: pointer; transition: background 0.22s, width 0.28s; }
+    .c-dot.active { background: var(--blue); width: 24px; }
+
+    /* Book a demo, a Calendly linked band */
+    .demo-band { position: relative; overflow: hidden; padding: 120px 24px; text-align: center; }
+    .demo-band-media { position: absolute; inset: 0; z-index: 0; }
+    .demo-band-media img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.75); }
+    .demo-band-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6,11,24,0.88), rgba(6,11,24,0.78) 55%, rgba(6,11,24,0.92));
+    }
+    .demo-band-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+    .demo-band-inner h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1.16; margin-bottom: 16px; }
+    .demo-band-inner p { font-size: 1rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 32px; }
+    .demo-band-note { font-size: 12.5px; color: rgba(255,255,255,0.4); margin-top: 14px; }
+
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+    /* CTA band */
+    .cta-band { background: var(--navy); padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before {
+      content: '';
+      position: absolute; top: -60%; left: 50%; transform: translateX(-50%);
+      width: 720px; height: 520px;
+      background: radial-gradient(ellipse at center, rgba(47,92,255,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-band-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+    .cta-band h2 { font-size: clamp(1.8rem, 3.7vw, 2.8rem); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1.14; margin-bottom: 14px; }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.56); margin-bottom: 36px; line-height: 1.75; }
+    .cta-band-btns { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* Footer */
+    .site-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.07); position: relative; }
+    .footer-accent-bar {
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(47,92,255,0.6) 30%, var(--blue) 50%, rgba(47,92,255,0.6) 70%, transparent 100%);
+    }
+    .footer-newsletter { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 42px 24px; }
+    .footer-newsletter-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .fn-copy h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .fn-copy p { font-size: 13.5px; color: rgba(255,255,255,0.45); }
+    .fn-form { display: flex; align-items: center; flex-shrink: 0; }
+    .fn-input {
+      width: 260px; height: 44px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-right: none;
+      border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+      padding: 0 14px;
+      font-family: var(--font-body);
+      font-size: 14px; color: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .fn-input::placeholder { color: rgba(255,255,255,0.30); }
+    .fn-input:focus { border-color: rgba(47,92,255,0.7); }
+    .fn-btn {
+      height: 44px; padding: 0 20px;
+      background: var(--blue); color: #fff; border: none;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-family: var(--font-display);
+      font-size: 13.5px; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .fn-btn:hover { background: var(--blue-hover); }
+
+    .footer-main { padding: 60px 24px 50px; max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr; gap: 40px; position: relative; z-index: 1; }
+    .footer-brand .fb-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; }
+    .fb-mark { width: 36px; height: 36px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 900; font-size: 12px; color: #fff; flex-shrink: 0; }
+    .fb-name { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: #fff; letter-spacing: -0.025em; }
+    .fb-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 24px; max-width: 250px; }
+    .fb-contact { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .fb-contact-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+    .fb-contact-item:hover { color: rgba(255,255,255,0.85); }
+    .fb-contact-item svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.35); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .fb-contact-item:hover svg { stroke: rgba(255,255,255,0.7); }
+
+    .fb-socials { display: flex; align-items: center; gap: 8px; }
+    .fb-social-icon {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s, transform 0.12s;
+    }
+    .fb-social-icon:hover { background: rgba(47,92,255,0.25); border-color: rgba(47,92,255,0.5); transform: translateY(-2px); }
+    .fb-social-icon svg { width: 15px; height: 15px; stroke: rgba(255,255,255,0.55); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .fb-social-icon:hover svg { stroke: rgba(255,255,255,0.9); }
+
+    .footer-col-title { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 18px; }
+    .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col-links a { font-size: 13.5px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+    .footer-col-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-col-links .new-tag { font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(47,92,255,0.35); color: #A8C0FF; padding: 2px 6px; border-radius: 4px; }
+
+    .footer-compliance { border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 24px; position: relative; z-index: 1; }
+    .footer-compliance-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .compliance-badge { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 100px; padding: 5px 12px; font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.4); white-space: nowrap; }
+    .compliance-badge svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.35); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* Giant wordmark, the closing signature moment of the page */
+    .footer-wordmark {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 26px;
+      height: 190px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .footer-wordmark svg { width: 100%; max-width: 1400px; display: block; }
+    .footer-wordmark-route {
+      stroke-dasharray: 10 8;
+      stroke: rgba(47,92,255,0.35);
+    }
+    .footer-wordmark-route-live {
+      stroke-dasharray: 2200;
+      stroke-dashoffset: 2200;
+      stroke: var(--blue);
+      opacity: 0.7;
+      animation: footerRoute 7s ease-in-out infinite;
+    }
+    @keyframes footerRoute {
+      0%   { stroke-dashoffset: 2200; }
+      60%  { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 24px; position: relative; z-index: 1; }
+    .footer-bottom-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copyright { font-size: 12.5px; color: rgba(255,255,255,0.28); }
+    .footer-location { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: rgba(255,255,255,0.28); }
+    .footer-location svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.28); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .footer-legal-links { display: flex; align-items: center; gap: 18px; list-style: none; }
+    .footer-legal-links a { font-size: 12.5px; color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.15s; }
+    .footer-legal-links a:hover { color: rgba(255,255,255,0.65); }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 14px 15px;
+      display: flex; align-items: flex-start; gap: 11px;
+      max-width: 300px;
+      z-index: 9999;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(60px) scale(0.96);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s;
+      pointer-events: none;
+    }
+    .toast.show { transform: none; opacity: 1; pointer-events: auto; }
+    .toast-icon { width: 32px; height: 32px; background: var(--blue-50); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    [data-theme="dark"] .toast-icon { background: rgba(47,92,255,0.16); }
+    .toast-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .toast-msg { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+    .toast-close { position: absolute; top: 9px; right: 11px; font-size: 15px; color: var(--text-muted); cursor: pointer; background: none; border: none; line-height: 1; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-main { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .c-slide { grid-template-columns: 1fr; padding: 32px 24px; gap: 24px; }
+      .hero h1 { font-size: 2.6rem; }
+      .hero-stats { flex-direction: column; border-radius: var(--radius-lg); }
+      .hero-stat-sep { width: 100%; height: 1px; margin: 0; }
+      .hero-stat { padding: 16px 20px; }
+      .section { padding: 76px 0; }
+      .section-sm { padding: 60px 0; }
+      .footer-wordmark { height: 120px; }
+    }
+    @media (max-width: 680px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .carousel-top { flex-direction: column; align-items: flex-start; }
+      .demo-band { padding: 84px 22px; }
+      .fn-form { flex-direction: column; align-items: stretch; width: 100%; gap: 8px; }
+      .fn-input { width: 100%; border-right: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-sm); }
+      .fn-btn { border-radius: var(--radius-sm); height: 44px; width: 100%; }
+      .footer-newsletter-inner { flex-direction: column; align-items: flex-start; }
+      .footer-bottom-inner { flex-direction: column; text-align: center; align-items: center; gap: 10px; }
+      .footer-legal-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .footer-compliance-inner { justify-content: center; }
+      .hero-ctas { flex-direction: column; align-items: stretch; max-width: 320px; }
+      .hero-ctas .btn { justify-content: center; }
+      .footer-wordmark { height: 84px; }
+    }
+    @media (max-width: 420px) {
+      .footer-main { grid-template-columns: 1fr; }
+      .hero-stats { max-width: 100%; }
+      .hero { padding: 100px 18px 64px; }
+      .footer-wordmark { height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/" aria-label="Traxx home">
+        <div class="nav-logo-mark" aria-hidden="true">TX</div>
+        <span class="nav-logo-text">Traxx</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#use-cases">Solutions</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/contact">Company</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle colour theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="nav-signin" href="/login">Sign in</a>
+        <a class="btn btn-primary btn-nav-cta" href="/signup">Sign Up</a>
+        <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <a href="#platform" onclick="closeMobileMenu()">Platform</a>
+    <a href="#use-cases" onclick="closeMobileMenu()">Solutions</a>
+    <a href="/pricing" onclick="closeMobileMenu()">Pricing</a>
+    <a href="/contact" onclick="closeMobileMenu()">Company</a>
+    <div class="mobile-menu-divider"></div>
+    <div class="mobile-menu-cta">
+      <a class="btn btn-ghost" href="/login">Sign in</a>
+      <a class="btn btn-primary" href="/signup">Sign Up</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" aria-label="Hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="hero-fade-left" aria-hidden="true"></div>
+  <div class="hero-fade-right" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+
+    <div class="hero-content">
+      <div class="hero-live-badge" role="status">
+        Now live across Nigeria
+      </div>
+
+      <h1>
+        Your Logistics.<br />
+        Under Control.
+      </h1>
+
+      <p class="hero-sub">
+        Traxx gives Nigerian businesses live GPS visibility, automated flag detection, and a complete audit trail for every vehicle on their payroll.
+      </p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-primary-lg" href="/signup">
+          Sign up
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7 7 7"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-ghost-lg" href="#book-a-demo">Book a demo</a>
+      </div>
+
+      <div class="hero-trust-line">
+        <div class="hero-trust-avatars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span class="hero-trust-text">Trusted by fleet owners running deliveries across Nigeria</span>
+      </div>
+
+      <div class="hero-stats" role="list" aria-label="Platform statistics">
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-num">5s</div>
+          <div class="hero-stat-label">GPS update interval</div>
+        </div>
+        <div class="hero-stat-sep" aria-hidden="true"></div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-num">95%+</div>
+          <div class="hero-stat-label">Flag detection rate</div>
+        </div>
+        <div class="hero-stat-sep" aria-hidden="true"></div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Products, one platform</div>
+        </div>
+        <div class="hero-stat-sep" aria-hidden="true"></div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-num">0</div>
+          <div class="hero-stat-label">Auto approvals. Ever.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-card hv-card-main">
+        <img src="https://images.pexels.com/photos/7362948/pexels-photo-7362948.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop" alt="" loading="lazy" />
+        <div class="hv-card-tag"><span class="live-dot" aria-hidden="true"></span> Rider on the road</div>
+      </div>
+      <div class="hv-card hv-card-photo">
+        <img src="https://images.pexels.com/photos/6869065/pexels-photo-6869065.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="" loading="lazy" />
+        <div class="hv-card-photo-label">Package handoff</div>
+      </div>
+      <div class="hv-card hv-card-ops">
+        <div class="hv-card-ops-media">
+          <img src="https://images.pexels.com/photos/4484149/pexels-photo-4484149.jpeg?auto=compress&cs=tinysrgb&w=600&h=520&fit=crop" alt="" loading="lazy" />
+        </div>
+        <div class="hv-card-ops-label">Ops manager, live map
+          <div class="hv-card-ops-sub">Lagos dispatch desk</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="trust-strip" aria-label="Trust indicators">
+  <div class="trust-strip-inner">
+    <span class="trust-label">Built for</span>
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Web and Mobile
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        NDPR Compliant
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Live 24 hours a day
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        KYC Verified Riders
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+        Paystack Billing
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="problem-section" aria-labelledby="problem-heading">
+  <div class="problem-inner">
+    <div class="problem-kicker reveal">The problem we solve</div>
+    <h2 class="problem-title reveal" id="problem-heading">
+      You are paying for rides<br />
+      <span class="highlight">you never ordered.</span>
+    </h2>
+    <p class="problem-desc reveal">
+      Thousands of businesses across Nigeria pay riders a salary, cover their fuel, and hand over a company vehicle. The expectation is simple: use working hours for company deliveries. In practice, no one can enforce this without a tracking system. Traxx makes every movement visible, every deviation logged, and every anomaly flagged the moment it happens.
+    </p>
+    <div class="problem-pills reveal">
+      <div class="problem-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        No live vehicle visibility
+      </div>
+      <div class="problem-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        No proof of personal use
+      </div>
+      <div class="problem-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        No attendance audit trail
+      </div>
+      <div class="problem-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        No alert when something goes wrong
+      </div>
+      <div class="problem-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        No delivery assignment record
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="steps-heading">
+  <div class="container">
+    <div class="section-header-center reveal">
+      <div class="section-kicker section-kicker-center">Getting started</div>
+      <h2 class="section-title" id="steps-heading">Up and running in three steps.</h2>
+      <p class="section-sub">No IT team required. Set it up between deliveries, not instead of them.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="steps-connector" aria-hidden="true"></div>
+
+      <div class="step-card reveal reveal-d1" data-step="1">
+        <div class="step-num">01</div>
+        <div class="step-eyebrow">First</div>
+        <h3>Add your fleet</h3>
+        <p>Register your riders and vehicles. Your whole operation, structured and visible, in one afternoon.</p>
+      </div>
+
+      <div class="step-card reveal reveal-d3" data-step="2">
+        <div class="step-num">02</div>
+        <div class="step-eyebrow">Then</div>
+        <h3>Watch it move</h3>
+        <p>Every pickup and drop off shows up live on the map. No calling around to ask where someone is.</p>
+      </div>
+
+      <div class="step-card reveal reveal-d5" data-step="3">
+        <div class="step-num">03</div>
+        <div class="step-eyebrow">From here on</div>
+        <h3>Never explain a delay again</h3>
+        <p>Customers watch their own delivery arrive. You close the day with answers, not guesswork.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt section-bordered" id="platform" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="section-header-center reveal">
+      <div class="section-kicker section-kicker-center">Platform capabilities</div>
+      <h2 class="section-title" id="features-heading">
+        Built for the way Nigerian fleets actually work.
+      </h2>
+      <p class="section-sub">
+        We do not just show you where your vehicles are. We help you stay in control of what is happening.
+      </p>
+    </div>
+
+    <div class="features-grid" id="features">
+
+      <article class="feature-card reveal reveal-d1">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <h3>Live Fleet Map</h3>
+        <p>Every vehicle on your payroll, live on one map. GPS positions refresh every 5 seconds with colour coded status: on trip, idle, flagged, or offline.</p>
+      </article>
+
+      <article class="feature-card reveal reveal-d2">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Automated Flag Detection</h3>
+        <p>Route deviations, unassigned movement, idle alerts, and unauthorised disengagement are all flagged the moment they happen. Not the next day.</p>
+      </article>
+
+      <article class="feature-card reveal reveal-d3">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>GPS Replay and Audit Trail</h3>
+        <p>Replay any rider's full day of GPS movement, frame by frame. Export as PDF or CSV. An irrefutable record for every disciplinary decision.</p>
+      </article>
+
+      <article class="feature-card reveal reveal-d4">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Shift Management and Sign Off</h3>
+        <p>Riders clock in through the app. Every sign off requires your explicit approval. No automatic approvals, ever. Every shift is logged for payroll verification.</p>
+      </article>
+
+      <article class="feature-card reveal reveal-d5">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>Rider Scorecards</h3>
+        <p>On time rates, total flags, and trips completed for every rider, updated daily. Built to support performance reviews with numbers, not opinions.</p>
+      </article>
+
+      <article class="feature-card reveal reveal-d6">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Fair Flagging Engine</h3>
+        <p>Heavy traffic is not a flag. Traxx tells the difference between a rider stuck in genuine congestion and one who has left their route on purpose. Riders on the correct route are never penalised.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-bordered" aria-labelledby="compare-heading">
+  <div class="container">
+    <div class="section-header-center reveal">
+      <div class="section-kicker section-kicker-center">The real cost of chaos</div>
+      <h2 class="section-title" id="compare-heading">Running on WhatsApp costs more than it looks like.</h2>
+      <p class="section-sub">Most fleet owners do not see the leak until they stop it.</p>
+    </div>
+
+    <div class="compare-grid">
+
+      <div class="compare-card compare-card-without reveal reveal-d1">
+        <div class="compare-label">Without Traxx</div>
+        <ul class="compare-list">
+          <li><svg class="compare-icon compare-icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Customers calling to ask where their order is</li>
+          <li><svg class="compare-icon compare-icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> No record of where a vehicle actually went</li>
+          <li><svg class="compare-icon compare-icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Riders operating with no real accountability</li>
+          <li><svg class="compare-icon compare-icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Your day reconstructed from memory and chat scroll</li>
+          <li><svg class="compare-icon compare-icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Disputes you cannot actually settle</li>
+        </ul>
+      </div>
+
+      <div class="compare-card compare-card-with reveal reveal-d3">
+        <div class="compare-label">With Traxx</div>
+        <ul class="compare-list">
+          <li><svg class="compare-icon compare-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Customers watch their own delivery arrive</li>
+          <li><svg class="compare-icon compare-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Every trip logged, verifiable, on record</li>
+          <li><svg class="compare-icon compare-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Every rider and vehicle accounted for</li>
+          <li><svg class="compare-icon compare-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> A daily report waiting for you, not the other way round</li>
+          <li><svg class="compare-icon compare-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Answers ready the moment a dispute comes up</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="use-cases" aria-labelledby="usecases-heading">
+  <div class="carousel-wrap">
+    <div class="carousel-top reveal">
+      <div>
+        <div class="section-kicker">Use cases</div>
+        <h2 class="section-title" id="usecases-heading">
+          Every fleet problem,<br />finally solved.
+        </h2>
+      </div>
+      <div class="carousel-controls" role="group" aria-label="Carousel controls">
+        <button class="carousel-btn" onclick="shiftCarousel(-1)" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-btn" onclick="shiftCarousel(1)" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel-clip reveal">
+      <div class="carousel-track" id="carouselTrack" role="region" aria-label="Use case slides">
+
+        <article class="c-slide">
+          <div>
+            <div class="slide-counter" aria-label="Slide 1 of 3">01 / 03</div>
+            <div class="slide-tag">Accountability</div>
+            <h3 class="slide-title">Stop paying for ghost rides and fuel you did not authorise.</h3>
+            <p class="slide-desc">When a rider finishes company deliveries and starts personal errands on your fuel and time, Traxx flags it immediately. Before a single litre is wasted on a trip you never approved.</p>
+          </div>
+          <div class="slide-mock" aria-label="Live flag log example">
+            <div class="mock-hdr">Live flag log</div>
+            <div class="mock-row"><div class="mock-dot" style="background:#D3452F" aria-hidden="true"></div><div class="mock-txt">Emeka A. · Ikeja to Surulere</div><div class="mock-badge b-red">Unassigned</div></div>
+            <div class="mock-row"><div class="mock-dot" style="background:#EE9F1E" aria-hidden="true"></div><div class="mock-txt">Tunde K. · Victoria Island</div><div class="mock-badge b-amber">Deviation</div></div>
+            <div class="mock-row"><div class="mock-dot" style="background:var(--blue)" aria-hidden="true"></div><div class="mock-txt">Amina Y. · Wuse, Abuja</div><div class="mock-badge b-blue">On Route</div></div>
+            <div class="mock-row"><div class="mock-dot" style="background:#12965E" aria-hidden="true"></div><div class="mock-txt">Bello M. · GRA, Port Harcourt</div><div class="mock-badge b-green">On Trip</div></div>
+          </div>
+        </article>
+
+        <article class="c-slide">
+          <div>
+            <div class="slide-counter" aria-label="Slide 2 of 3">02 / 03</div>
+            <div class="slide-tag">Evidence</div>
+            <h3 class="slide-title">Build an HR ready disciplinary record without lifting a pen.</h3>
+            <p class="slide-desc">Every flag, deviation, and unassigned movement is permanently logged with GPS coordinates and timestamps. Export a complete rider history as PDF in two clicks. The record is there when you need it.</p>
+          </div>
+          <div class="slide-mock" aria-label="Rider scorecards example">
+            <div class="mock-hdr">Rider scorecards this month</div>
+            <div class="mock-bar-row"><div class="mock-txt" style="max-width:80px">Emeka A.</div><div class="bar-track"><div class="bar-fill" style="width:42%;background:#D3452F"></div></div><div class="mock-badge b-red">Needs Work</div></div>
+            <div class="mock-bar-row"><div class="mock-txt" style="max-width:80px">Amina Y.</div><div class="bar-track"><div class="bar-fill" style="width:91%;background:var(--blue)"></div></div><div class="mock-badge b-blue">Excellent</div></div>
+            <div class="mock-bar-row"><div class="mock-txt" style="max-width:80px">Bello M.</div><div class="bar-track"><div class="bar-fill" style="width:73%;background:#12965E"></div></div><div class="mock-badge b-green">Good</div></div>
+            <div class="mock-bar-row"><div class="mock-txt" style="max-width:80px">Tunde K.</div><div class="bar-track"><div class="bar-fill" style="width:58%;background:#EE9F1E"></div></div><div class="mock-badge b-amber">Review</div></div>
+          </div>
+        </article>
+
+        <article class="c-slide">
+          <div>
+            <div class="slide-counter" aria-label="Slide 3 of 3">03 / 03</div>
+            <div class="slide-tag">Operations</div>
+            <h3 class="slide-title">Manage deliveries, sign offs, and shifts from one screen.</h3>
+            <p class="slide-desc">Create assignments from the web dashboard and they appear on the rider's phone instantly. Approve shift sign offs with one tap. No phone calls needed to check where your fleet is.</p>
+          </div>
+          <div class="slide-mock" aria-label="Active assignments example">
+            <div class="mock-hdr">Active assignments today</div>
+            <div class="mock-row"><div class="mock-dot" style="background:var(--blue)" aria-hidden="true"></div><div class="mock-txt">TRX 0041 · Lekki to Ajah</div><div class="mock-badge b-blue">In Transit</div></div>
+            <div class="mock-row"><div class="mock-dot" style="background:#EE9F1E" aria-hidden="true"></div><div class="mock-txt">TRX 0042 · Wuse to Garki</div><div class="mock-badge b-amber">Pending</div></div>
+            <div class="mock-row"><div class="mock-dot" style="background:#12965E" aria-hidden="true"></div><div class="mock-txt">TRX 0039 · Trans Amadi to GRA</div><div class="mock-badge b-green">Delivered</div></div>
+            <div class="mock-row"><div class="mock-dot" style="background:#D3452F" aria-hidden="true"></div><div class="mock-txt">TRX 0040 · Surulere to Apapa</div><div class="mock-badge b-red">Overdue</div></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="carousel-dots" role="tablist" aria-label="Slide indicators">
+      <div class="c-dot active" role="tab" tabindex="0" aria-label="Slide 1" aria-selected="true" onclick="jumpToSlide(0)"></div>
+      <div class="c-dot" role="tab" tabindex="0" aria-label="Slide 2" aria-selected="false" onclick="jumpToSlide(1)"></div>
+      <div class="c-dot" role="tab" tabindex="0" aria-label="Slide 3" aria-selected="false" onclick="jumpToSlide(2)"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bordered" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-kicker reveal">Questions</div>
+    <h2 class="section-title reveal" id="faq-heading">Plain answers, no jargon.</h2>
+
+    <div class="faq-list reveal reveal-d1">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          What is Traxx?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap"><div class="faq-answer-inner">
+          <p class="faq-answer">Traxx is a fleet intelligence platform built for logistics businesses across Nigeria. It gives you live GPS visibility, automated flag detection, and a complete audit trail for every rider and vehicle on your payroll.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          How does the tracking actually work?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap"><div class="faq-answer-inner">
+          <p class="faq-answer">Each rider's phone reports its GPS position every 5 seconds. Traxx plots that on your live map and automatically flags anything that looks like a route deviation, an unassigned trip, or unusual idle time.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          How much does it cost?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap"><div class="faq-answer-inner">
+          <p class="faq-answer">Pricing depends on the size of your fleet. Book a demo and we will walk you through a plan that fits your operation.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          How do my customers get the tracking link?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap"><div class="faq-answer-inner">
+          <p class="faq-answer">Once a delivery is assigned, Traxx generates a live tracking link automatically. Share it by WhatsApp, SMS, or email, and your customer can watch their delivery arrive in real time.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Is Traxx available outside Lagos?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap"><div class="faq-answer-inner">
+          <p class="faq-answer">Yes. Traxx is built to serve logistics businesses across Nigeria, from Lagos and Abuja to Port Harcourt and beyond.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--Book a demo band.-->
+<section class="demo-band" id="book-a-demo" aria-labelledby="demo-heading">
+  <div class="demo-band-media" aria-hidden="true">
+    <img src="https://images.pexels.com/photos/4481531/pexels-photo-4481531.jpeg?auto=compress&cs=tinysrgb&w=1800&h=1000&fit=crop" alt="" loading="lazy" />
+    <div class="demo-band-overlay"></div>
+  </div>
+  <div class="demo-band-inner reveal">
+    <div class="section-kicker section-kicker-center" style="color:#8FADFF">Book a demo</div>
+    <h2 id="demo-heading">See your whole fleet clearly, in one walkthrough.</h2>
+    <p>Twenty minutes with a real member of the Traxx team, on a call time that works for you. No pressure, no commitment. Just a real look at the platform with your own fleet in mind.</p>
+    <a class="btn btn-white btn-primary-lg" href="https://calendly.com/contact-traxx" target="_blank" rel="noopener">
+      Book a Demo
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7 7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="cta-band" aria-labelledby="cta-heading">
+  <div class="cta-band-inner">
+    <h2 id="cta-heading">
+      Ready to see your fleet<br />clearly for the first time?
+    </h2>
+    <p>Get set up in under 3 minutes. No setup fees. No annual contracts.</p>
+    <div class="cta-band-btns">
+      <a class="btn btn-white btn-primary-lg" href="/signup">
+        Create your account
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7 7 7"/></svg>
+      </a>
+      <a class="btn btn-dark-ghost btn-ghost-lg" href="#book-a-demo">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+
+  <div class="footer-accent-bar" aria-hidden="true"></div>
+
+  <div class="footer-newsletter">
+    <div class="footer-newsletter-inner">
+      <div class="fn-copy">
+        <h4>Stay up to date with Traxx</h4>
+        <p>Product updates, Nigerian fleet insights, and platform news. No spam.</p>
+      </div>
+      <div class="fn-form" role="form" aria-label="Newsletter signup">
+        <label for="footer-email" class="visually-hidden">Email address</label>
+        <input class="fn-input" type="email" id="footer-email" placeholder="Your email address" autocomplete="email" />
+        <button class="fn-btn" type="button" onclick="handleNewsletterSignup()" aria-label="Subscribe to newsletter">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-main" role="navigation" aria-label="Footer navigation">
+
+    <div class="footer-brand">
+      <a class="fb-logo" href="/" aria-label="Traxx home">
+        <div class="fb-mark" aria-hidden="true">TX</div>
+        <span class="fb-name">Traxx</span>
+      </a>
+      <p class="fb-desc">
+        Fleet Intelligence Platform for businesses across Nigeria. Track every vehicle, flag every deviation, and build an irrefutable audit trail for your entire fleet.
+      </p>
+      <div class="fb-contact">
+        <a class="fb-contact-item" href="mailto:contact@traxx.ng" aria-label="Email Traxx">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@traxx.ng
+        </a>
+        <a class="fb-contact-item" href="tel:+2348154225462" aria-label="Call Traxx">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.1a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +2348154225462
+        </a>
+        <span class="fb-contact-item" aria-label="Location">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Serving all 36 states and the FCT
+        </span>
+      </div>
+      <div class="fb-socials" aria-label="Social media links">
+        <a class="fb-social-icon" href="https://www.linkedin.com/company/traxx-ng/" target="_blank" rel="noopener noreferrer" aria-label="Traxx on LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="fb-social-icon" href="https://www.instagram.com/traxx.ng?igsh=aHJpa3Jud3JwbzVw&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Traxx on Instagram (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a class="fb-social-icon" href="https://twitter.com/traxx_ng" target="_blank" rel="noopener noreferrer" aria-label="Traxx on X (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="fb-social-icon" href="https://wa.me/2348154225462" target="_blank" rel="noopener noreferrer" aria-label="Traxx on WhatsApp (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+        <a class="fb-social-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Traxx on YouTube (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <nav class="footer-col" aria-label="Platform links">
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="/dashboard">Web Dashboard</a></li>
+        <li><a href="#">Fleet Manager App <span class="new-tag">Coming</span></a></li>
+        <li><a href="/rider">Rider App</a></li>
+        <li><a href="#">System Status</a></li>
+        <li><a href="#">API Docs <span class="new-tag">Soon</span></a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Company links">
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="#">About Traxx</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="#">Press Kit</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Support links">
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="#">Help Centre</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="https://wa.me/2348154225462" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+        <li><a href="mailto:contact@traxx.ng">Email Us</a></li>
+        <li><a href="#">Rider App Guide</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Legal links">
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/security">Security</a></li>
+        <li><a href="#">Anti Gaming Policy</a></li>
+        <li><a href="#">NDPR Compliance</a></li>
+        <li><a href="#">Fleet Operator Agreement</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <div class="footer-compliance">
+    <div class="footer-compliance-inner" aria-label="Compliance and certification badges">
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        NDPR Compliant
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+        Paystack Secured
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        SSL Encrypted
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        GPS Data Retained 90 Days
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        CAC Registered
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-wordmark" aria-hidden="true">
+    <svg viewBox="0 0 1400 200" preserveAspectRatio="xMidYMax meet">
+      <path class="footer-wordmark-route" d="M 0 170 C 300 100, 600 220, 700 150 S 1100 60, 1400 170" fill="none" stroke-width="2"/>
+      <path class="footer-wordmark-route-live" d="M 0 170 C 300 100, 600 220, 700 150 S 1100 60, 1400 170" fill="none" stroke-width="2"/>
+      <text x="50%" y="170" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="900" font-size="180" letter-spacing="4" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5">TRAXX</text>
+    </svg>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-copyright">&copy; 2026 Traxx Fleet Intelligence. All rights reserved.</div>
+      <div class="footer-location">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nigeria
+      </div>
+      <ul class="footer-legal-links" role="list">
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/security">Security</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+</footer>
+
+<div class="toast" id="toast">
+  <div class="toast-icon">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div>
+    <div class="toast-title">You are on the list.</div>
+    <div class="toast-msg">Thank you for subscribing to Traxx updates.</div>
+  </div>
+  <button class="toast-close" onclick="hideToast()">&times;</button>
+</div>
+
+<script>
+  "use strict";
+
+  const html = document.documentElement;
+  html.setAttribute('data-theme', localStorage.getItem('traxx-theme') || 'light');
+
+  document.getElementById('themeToggle').addEventListener('click', function () {
+    const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('traxx-theme', next);
+  });
+
+  window.addEventListener('scroll', function () {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 6);
+  }, { passive: true });
+
+  const mobileBtn  = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  mobileBtn.addEventListener('click', function () {
+    const isOpen = mobileMenu.classList.toggle('open');
+    mobileBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileBtn.querySelector('svg').innerHTML = isOpen
+      ? '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
+      : '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    mobileBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  let currentSlide = 0;
+  const totalSlides = 3;
+  let autoplay;
+
+  function updateCarousel() {
+    document.getElementById('carouselTrack').style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    document.querySelectorAll('.c-dot').forEach(function (dot, i) {
+      const isActive = i === currentSlide;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-selected', String(isActive));
+    });
+  }
+
+  function shiftCarousel(dir) {
+    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+    updateCarousel();
+    resetAutoplay();
+  }
+
+  function jumpToSlide(i) {
+    currentSlide = i;
+    updateCarousel();
+    resetAutoplay();
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(function () { shiftCarousel(1); }, 5800);
+  }
+  resetAutoplay();
+
+  const revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+
+  function handleNewsletterSignup() {
+    const input = document.getElementById('footer-email');
+    const email = (input.value || '').trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      input.style.borderColor = 'rgba(211,69,47,0.7)';
+      input.focus();
+      setTimeout(function () { input.style.borderColor = ''; }, 2500);
+      return;
+    }
+    input.value = '';
+    input.placeholder = 'You are on the list. Thank you.';
+    showToast();
+    setTimeout(function () { input.placeholder = 'Your email address'; }, 5000);
+  }
+
+  document.getElementById('footer-email').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { handleNewsletterSignup(); }
+  });
+
+  function showToast() { var t = document.getElementById('toast'); t.classList.add('show'); setTimeout(hideToast, 5000); }
+  function hideToast() { document.getElementById('toast').classList.remove('show'); }
+
+  /* FAQ accordion, one item open at a time */
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+</script>
+
+</body>
+</html>

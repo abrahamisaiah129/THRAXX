@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traxx Footer Component Preview | Developer Handoff</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232F5CFF'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='22' fill='white' letter-spacing='1'>TX</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2F5CFF;
+      --blue-hover: #1F45DB;
+      --blue-light: #6C8FFF;
+      --navy: #0B0F1C;
+      --navy-soft: #111729;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 9px;
+      --radius-md: 13px;
+      --radius-lg: 18px;
+    }
+    [data-theme="light"] {
+      --bg: #FFFFFF;
+      --bg-soft: #F5F8FF;
+      --text-primary: #060B18;
+      --text-secondary: #3B4763;
+      --text-muted: #69748C;
+      --border: #E4E9F4;
+    }
+    [data-theme="dark"] {
+      --bg: #12151F;
+      --bg-soft: #181C29;
+      --text-primary: #F3F5FA;
+      --text-secondary: #AFB6CB;
+      --text-muted: #838AA0;
+      --border: #262C40;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.7;
+    }
+    .preview-header {
+      padding: 60px 24px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .preview-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EEF2FF;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .preview-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .preview-header p {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto 24px;
+    }
+    .btn-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13.5px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+    .instructions-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      text-align: left;
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
+    .instructions-card h3 {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+  </style>
+
+  <!-- Extracted Footer Stylesheet -->
+  <link rel="stylesheet" href="footer.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-badge">Component Preview & Handoff</div>
+    <h1>Traxx Updated Footer Component</h1>
+    <p>
+      This standalone preview demonstrates the updated Traxx footer with all 19 active links properly routed, SVG live radar animation, Paystack/NDPR trust badges, and interactive newsletter toast.
+    </p>
+    <button class="btn-toggle" onclick="toggleTheme()">Toggle Theme (Light / Dark)</button>
+
+    <div class="instructions-card">
+      <h3>Developer Instructions</h3>
+      <p>
+        To update <strong>https://www.traxx.ng/</strong>, copy the contents of <code>footer-snippet.html</code> and replace the <code>&lt;footer class="site-footer"&gt;...&lt;/footer&gt;</code> block on the live landing page. All links use root paths (e.g. <code>/web-dashboard/</code>, <code>/about/</code>, <code>/career/</code>) so navigation functions seamlessly across the entire site.
+      </p>
+    </div>
+  </header>
+
+  <!-- The Footer Component -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-accent-bar" aria-hidden="true"></div>
+
+    <div class="footer-newsletter">
+      <div class="footer-newsletter-inner">
+        <div class="fn-copy">
+          <h4>Stay up to date with Traxx</h4>
+          <p>Product updates, Nigerian fleet insights, and platform news. No spam.</p>
+        </div>
+        <div class="fn-form" role="form" aria-label="Newsletter signup">
+          <label for="footer-email" class="visually-hidden">Email address</label>
+          <input class="fn-input" type="email" id="footer-email" placeholder="Your email address" autocomplete="email" />
+          <button class="fn-btn" type="button" onclick="handleNewsletterSignup()" aria-label="Subscribe to newsletter">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-main" role="navigation" aria-label="Footer navigation">
+
+      <div class="footer-brand">
+        <a class="fb-logo" href="/" aria-label="Traxx home">
+          <div class="fb-mark" aria-hidden="true">TX</div>
+          <span class="fb-name">Traxx</span>
+        </a>
+        <p class="fb-desc">
+          Fleet Intelligence Platform for businesses across Nigeria. Track every vehicle, flag every deviation, and build an irrefutable audit trail for your entire fleet.
+        </p>
+        <div class="fb-contact">
+          <a class="fb-contact-item" href="mailto:contact@traxx.ng" aria-label="Email Traxx">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contact@traxx.ng
+          </a>
+          <a class="fb-contact-item" href="tel:+2348154225462" aria-label="Call Traxx">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.1a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +2348154225462
+          </a>
+          <span class="fb-contact-item" aria-label="Location">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Serving all 36 states and the FCT
+          </span>
+        </div>
+        <div class="fb-socials" aria-label="Social media links">
+          <a class="fb-social-icon" href="https://www.linkedin.com/company/traxx-ng/" target="_blank" rel="noopener noreferrer" aria-label="Traxx on LinkedIn (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a class="fb-social-icon" href="https://www.instagram.com/traxx.ng?igsh=aHJpa3Jud3JwbzVw&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Traxx on Instagram (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a class="fb-social-icon" href="https://twitter.com/traxx_ng" target="_blank" rel="noopener noreferrer" aria-label="Traxx on X (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a class="fb-social-icon" href="https://wa.me/2348154225462" target="_blank" rel="noopener noreferrer" aria-label="Traxx on WhatsApp (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </a>
+          <a class="fb-social-icon" href="https://www.youtube.com/@traxx_ng" target="_blank" rel="noopener noreferrer" aria-label="Traxx on YouTube (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Platform Links -->
+      <nav class="footer-col" aria-label="Platform links">
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="/web-dashboard/">Web Dashboard</a></li>
+          <li><a href="/fleet-manager-app/">Fleet Manager App <span class="new-tag">Coming</span></a></li>
+          <li><a href="/rider-app/">Rider App</a></li>
+          <li><a href="/system-status/">System Status</a></li>
+          <li><a href="/api-docs/">API Docs <span class="new-tag">Soon</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Company Links -->
+      <nav class="footer-col" aria-label="Company links">
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="/about/">About Traxx</a></li>
+          <li><a href="/career/">Careers</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/press-kit/">Press Kit</a></li>
+        </ul>
+      </nav>
+
+      <!-- Support Links -->
+      <nav class="footer-col" aria-label="Support links">
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="/help-centre/">Help Centre</a></li>
+          <li><a href="/faqs/">FAQs</a></li>
+          <li><a href="https://wa.me/2348154225462" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+          <li><a href="mailto:contact@traxx.ng">Email Us</a></li>
+          <li><a href="/rider-app-guide/">Rider App Guide</a></li>
+        </ul>
+      </nav>
+
+      <!-- Legal Links -->
+      <nav class="footer-col" aria-label="Legal links">
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms-of-service/">Terms of Service</a></li>
+          <li><a href="/security/">Security</a></li>
+          <li><a href="/anti-gaming-policy/">Anti Gaming Policy</a></li>
+          <li><a href="/ndpr-compliance/">NDPR Compliance</a></li>
+          <li><a href="/fleet-operator-agreement/">Fleet Operator Agreement</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer-compliance">
+      <div class="footer-compliance-inner" aria-label="Compliance and certification badges">
+        <div class="compliance-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          NDPR Compliant
+        </div>
+        <div class="compliance-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+          Paystack Secured
+        </div>
+        <div class="compliance-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          SSL Encrypted
+        </div>
+        <div class="compliance-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          GPS Data Retained 90 Days
+        </div>
+        <div class="compliance-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          CAC Registered
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-wordmark" aria-hidden="true">
+      <svg viewBox="0 0 1400 200" preserveAspectRatio="xMidYMax meet">
+        <path class="footer-wordmark-route" d="M 0 170 C 300 100, 600 220, 700 150 S 1100 60, 1400 170" fill="none" stroke-width="2"/>
+        <path class="footer-wordmark-route-live" d="M 0 170 C 300 100, 600 220, 700 150 S 1100 60, 1400 170" fill="none" stroke-width="2"/>
+        <text x="50%" y="170" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="900" font-size="180" letter-spacing="4" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5">TRAXX</text>
+      </svg>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-copyright">&copy; 2026 Traxx Fleet Intelligence. All rights reserved.</div>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Nigeria
+        </div>
+        <ul class="footer-legal-links" role="list">
+          <li><a href="/privacy-policy/">Privacy</a></li>
+          <li><a href="/terms-of-service/">Terms</a></li>
+          <li><a href="/security/">Security</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="footer.js"></script>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+    }
+  </script>
+</body>
+</html>

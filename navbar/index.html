@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traxx Navbar Component Preview</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232F5CFF'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='22' fill='white' letter-spacing='1'>TX</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2F5CFF;
+      --blue-hover: #1F45DB;
+      --blue-light: #6C8FFF;
+      --amber: #EE9F1E;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-sm: 9px;
+      --radius-md: 13px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 2px 10px rgba(6,11,24,0.07);
+      --shadow-md: 0 6px 24px rgba(6,11,24,0.09);
+      --shadow-lg: 0 10px 36px rgba(6,11,24,0.11);
+    }
+    [data-theme="light"] {
+      --bg: #FFFFFF;
+      --bg-soft: #F5F8FF;
+      --bg-card: #FFFFFF;
+      --text-primary: #060B18;
+      --text-secondary: #3B4763;
+      --text-muted: #69748C;
+      --border: #E4E9F4;
+      --nav-bg: rgba(255,255,255,0.92);
+    }
+    [data-theme="dark"] {
+      --bg: #12151F;
+      --bg-soft: #181C29;
+      --bg-card: #1D2233;
+      --text-primary: #F3F5FA;
+      --text-secondary: #AFB6CB;
+      --text-muted: #838AA0;
+      --border: #262C40;
+      --nav-bg: rgba(18,21,31,0.92);
+    }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      min-height: 120vh;
+      padding-top: 140px;
+    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; border: none; cursor: pointer; text-decoration: none; border-radius: var(--radius-sm); }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--text-secondary); border: 1.5px solid var(--border); }
+    .content-box { max-width: 800px; margin: 0 auto; padding: 0 24px; text-align: center; }
+    .content-box h1 { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; margin-bottom: 14px; }
+    .content-box p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+  </style>
+
+  <!-- Extracted Navbar Stylesheet -->
+  <link rel="stylesheet" href="navbar.css" />
+</head>
+<body>
+
+  <!-- Extracted Navbar Component -->
+  <header>
+    <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a class="nav-logo" href="/" aria-label="Traxx home">
+          <div class="nav-logo-mark" aria-hidden="true">TX</div>
+          <span class="nav-logo-text">Traxx</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="/#platform">Platform</a></li>
+          <li><a href="/#use-cases">Solutions</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about/">Company</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button class="theme-btn" id="themeToggle" aria-label="Toggle colour theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a class="nav-signin" href="/login">Sign in</a>
+          <a class="btn btn-primary btn-nav-cta" href="/signup">Sign Up</a>
+          <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="/#platform" onclick="closeMobileMenu()">Platform</a>
+      <a href="/#use-cases" onclick="closeMobileMenu()">Solutions</a>
+      <a href="/pricing" onclick="closeMobileMenu()">Pricing</a>
+      <a href="/about/" onclick="closeMobileMenu()">Company</a>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-cta">
+        <a class="btn btn-ghost" href="/login">Sign in</a>
+        <a class="btn btn-primary" href="/signup">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content-box">
+    <div style="display:inline-block;background:#EEF2FF;color:var(--blue);font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:14px;">Component Showcase</div>
+    <h1>Traxx Floating Pill Navbar</h1>
+    <p>
+      This standalone preview demonstrates the floating pill navigation bar with backdrop blur, smooth scroll shadow states, responsive mobile drawer, and light/dark theme toggling.
+    </p>
+    <p style="font-size:14px;color:var(--text-muted);">
+      Scroll down the page to observe the sticky shadow activation on the pill navbar.
+    </p>
+  </main>
+
+  <script src="navbar.js"></script>
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+    });
+  </script>
+</body>
+</html>

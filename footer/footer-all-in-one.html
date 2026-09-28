@@ -1,0 +1,361 @@
+<style>
+/* Traxx Footer Styles — Drop-in CSS */
+.site-footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+  font-family: var(--font-body);
+  color: #fff;
+}
+.footer-accent-bar {
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(47,92,255,0.6) 30%, var(--blue) 50%, rgba(47,92,255,0.6) 70%, transparent 100%);
+}
+.footer-newsletter { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 42px 24px; }
+.footer-newsletter-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.fn-copy h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.fn-copy p { font-size: 13.5px; color: rgba(255,255,255,0.45); }
+.fn-form { display: flex; align-items: center; flex-shrink: 0; }
+.fn-input {
+  width: 260px; height: 44px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-right: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  padding: 0 14px;
+  font-family: var(--font-body);
+  font-size: 14px; color: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.fn-input::placeholder { color: rgba(255,255,255,0.30); }
+.fn-input:focus { border-color: rgba(47,92,255,0.7); }
+.fn-btn {
+  height: 44px; padding: 0 20px;
+  background: var(--blue); color: #fff; border: none;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-display);
+  font-size: 13.5px; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.15s;
+}
+.fn-btn:hover { background: var(--blue-hover); }
+
+.footer-main { padding: 60px 24px 50px; max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr; gap: 40px; position: relative; z-index: 1; }
+.footer-brand .fb-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; }
+.fb-mark { width: 36px; height: 36px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 900; font-size: 12px; color: #fff; flex-shrink: 0; }
+.fb-name { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: #fff; letter-spacing: -0.025em; }
+.footer-brand .fb-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 24px; max-width: 250px; }
+.fb-contact { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.fb-contact-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+.fb-contact-item:hover { color: rgba(255,255,255,0.85); }
+.fb-contact-item svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.35); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.fb-contact-item:hover svg { stroke: rgba(255,255,255,0.7); }
+
+.fb-socials { display: flex; align-items: center; gap: 8px; }
+.fb-social-icon {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+}
+.fb-social-icon:hover { background: rgba(47,92,255,0.25); border-color: rgba(47,92,255,0.5); transform: translateY(-2px); }
+.fb-social-icon svg { width: 15px; height: 15px; stroke: rgba(255,255,255,0.55); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.fb-social-icon:hover svg { stroke: rgba(255,255,255,0.9); }
+
+.footer-col-title { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 18px; }
+.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 11px; padding-left: 0; margin: 0; }
+.footer-col-links a { font-size: 13.5px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+.footer-col-links a:hover { color: rgba(255,255,255,0.9); }
+.footer-col-links .new-tag { font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(47,92,255,0.35); color: #A8C0FF; padding: 2px 6px; border-radius: 4px; }
+
+.footer-compliance { border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 24px; position: relative; z-index: 1; }
+.footer-compliance-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.compliance-badge { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 100px; padding: 5px 12px; font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.4); white-space: nowrap; }
+.compliance-badge svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.35); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+.footer-wordmark {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 26px;
+  height: 190px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.footer-wordmark svg { width: 100%; max-width: 1400px; display: block; }
+.footer-wordmark-route { stroke-dasharray: 10 8; stroke: rgba(47,92,255,0.35); }
+.footer-wordmark-route-live {
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+  stroke: var(--blue);
+  opacity: 0.7;
+  animation: footerRoute 7s ease-in-out infinite;
+}
+@keyframes footerRoute {
+  0%   { stroke-dashoffset: 2200; }
+  60%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 24px; position: relative; z-index: 1; }
+.footer-bottom-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer-copyright { font-size: 12.5px; color: rgba(255,255,255,0.28); }
+.footer-location { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: rgba(255,255,255,0.28); }
+.footer-location svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.28); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.footer-legal-links { display: flex; align-items: center; gap: 18px; list-style: none; padding-left: 0; margin: 0; }
+.footer-legal-links a { font-size: 12.5px; color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.15s; }
+.footer-legal-links a:hover { color: rgba(255,255,255,0.65); }
+
+@media (max-width: 1024px) {
+  .footer-main { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 860px) {
+  .footer-wordmark { height: 120px; }
+}
+@media (max-width: 680px) {
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .fn-form { flex-direction: column; align-items: stretch; width: 100%; gap: 8px; }
+  .fn-input { width: 100%; border-right: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-sm); }
+  .fn-btn { border-radius: var(--radius-sm); height: 44px; width: 100%; }
+  .footer-newsletter-inner { flex-direction: column; align-items: flex-start; }
+  .footer-bottom-inner { flex-direction: column; text-align: center; align-items: center; gap: 10px; }
+  .footer-legal-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .footer-compliance-inner { justify-content: center; }
+  .footer-wordmark { height: 84px; }
+}
+@media (max-width: 420px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-wordmark { height: 60px; }
+}
+</style>
+
+<footer class="site-footer" role="contentinfo">
+
+  <div class="footer-accent-bar" aria-hidden="true"></div>
+
+  <div class="footer-newsletter">
+    <div class="footer-newsletter-inner">
+      <div class="fn-copy">
+        <h4>Stay up to date with Traxx</h4>
+        <p>Product updates, Nigerian fleet insights, and platform news. No spam.</p>
+      </div>
+      <div class="fn-form" role="form" aria-label="Newsletter signup">
+        <label for="footer-email" class="visually-hidden">Email address</label>
+        <input class="fn-input" type="email" id="footer-email" placeholder="Your email address" autocomplete="email" />
+        <button class="fn-btn" type="button" onclick="handleNewsletterSignup()" aria-label="Subscribe to newsletter">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-main" role="navigation" aria-label="Footer navigation">
+
+    <div class="footer-brand">
+      <a class="fb-logo" href="/" aria-label="Traxx home">
+        <div class="fb-mark" aria-hidden="true">TX</div>
+        <span class="fb-name">Traxx</span>
+      </a>
+      <p class="fb-desc">
+        Fleet Intelligence Platform for businesses across Nigeria. Track every vehicle, flag every deviation, and build an irrefutable audit trail for your entire fleet.
+      </p>
+      <div class="fb-contact">
+        <a class="fb-contact-item" href="mailto:contact@traxx.ng" aria-label="Email Traxx">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@traxx.ng
+        </a>
+        <a class="fb-contact-item" href="tel:+2348154225462" aria-label="Call Traxx">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.1a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +2348154225462
+        </a>
+        <span class="fb-contact-item" aria-label="Location">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Serving all 36 states and the FCT
+        </span>
+      </div>
+      <div class="fb-socials" aria-label="Social media links">
+        <a class="fb-social-icon" href="https://www.linkedin.com/company/traxx-ng/" target="_blank" rel="noopener noreferrer" aria-label="Traxx on LinkedIn (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="fb-social-icon" href="https://www.instagram.com/traxx.ng?igsh=aHJpa3Jud3JwbzVw&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Traxx on Instagram (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a class="fb-social-icon" href="https://twitter.com/traxx_ng" target="_blank" rel="noopener noreferrer" aria-label="Traxx on X (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="fb-social-icon" href="https://wa.me/2348154225462" target="_blank" rel="noopener noreferrer" aria-label="Traxx on WhatsApp (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+        <a class="fb-social-icon" href="https://www.youtube.com/@traxx_ng" target="_blank" rel="noopener noreferrer" aria-label="Traxx on YouTube (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Platform Links -->
+    <nav class="footer-col" aria-label="Platform links">
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="/web-dashboard/">Web Dashboard</a></li>
+        <li><a href="/fleet-manager-app/">Fleet Manager App <span class="new-tag">Coming</span></a></li>
+        <li><a href="/rider-app/">Rider App</a></li>
+        <li><a href="/system-status/">System Status</a></li>
+        <li><a href="/api-docs/">API Docs <span class="new-tag">Soon</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- Company Links -->
+    <nav class="footer-col" aria-label="Company links">
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="/about/">About Traxx</a></li>
+        <li><a href="/career/">Careers</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact Us</a></li>
+        <li><a href="/press-kit/">Press Kit</a></li>
+      </ul>
+    </nav>
+
+    <!-- Support Links -->
+    <nav class="footer-col" aria-label="Support links">
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="/help-centre/">Help Centre</a></li>
+        <li><a href="/faqs/">FAQs</a></li>
+        <li><a href="https://wa.me/2348154225462" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+        <li><a href="mailto:contact@traxx.ng">Email Us</a></li>
+        <li><a href="/rider-app-guide/">Rider App Guide</a></li>
+      </ul>
+    </nav>
+
+    <!-- Legal Links -->
+    <nav class="footer-col" aria-label="Legal links">
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-col-links" role="list">
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/security/">Security</a></li>
+        <li><a href="/anti-gaming-policy/">Anti Gaming Policy</a></li>
+        <li><a href="/ndpr-compliance/">NDPR Compliance</a></li>
+        <li><a href="/fleet-operator-agreement/">Fleet Operator Agreement</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <div class="footer-compliance">
+    <div class="footer-compliance-inner" aria-label="Compliance and certification badges">
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        NDPR Compliant
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+        Paystack Secured
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        SSL Encrypted
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        GPS Data Retained 90 Days
+      </div>
+      <div class="compliance-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        CAC Registered
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-wordmark" aria-hidden="true">
+    <svg viewBox="0 0 1400 200" preserveAspectRatio="xMidYMax meet">
+      <path class="footer-wordmark-route" d="M 0 170 C 300 100, 600 220, 700 150 S 1100 60, 1400 170" fill="none" stroke-width="2"/>
+      <path class="footer-wordmark-route-live" d="M 0 170 C 300 100, 600 220, 700 150 S 1100 60, 1400 170" fill="none" stroke-width="2"/>
+      <text x="50%" y="170" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="900" font-size="180" letter-spacing="4" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5">TRAXX</text>
+    </svg>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-copyright">&copy; 2026 Traxx Fleet Intelligence. All rights reserved.</div>
+      <div class="footer-location">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nigeria
+      </div>
+      <ul class="footer-legal-links" role="list">
+        <li><a href="/privacy-policy/">Privacy</a></li>
+        <li><a href="/terms-of-service/">Terms</a></li>
+        <li><a href="/security/">Security</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+</footer>
+
+<script>
+/**
+ * Traxx Footer Component JavaScript
+ * Handles newsletter subscription validation and toast notifications.
+ */
+function handleNewsletterSignup() {
+  const input = document.getElementById('footer-email');
+  if (!input) return;
+  const email = (input.value || '').trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.style.borderColor = 'rgba(211,69,47,0.7)';
+    input.focus();
+    setTimeout(function () { input.style.borderColor = ''; }, 2500);
+    return;
+  }
+  input.value = '';
+  input.placeholder = 'You are on the list. Thank you.';
+  showToast('You are on the list.', 'Thank you for subscribing to Traxx updates.');
+  setTimeout(function () { input.placeholder = 'Your email address'; }, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const emailInput = document.getElementById('footer-email');
+  if (emailInput) {
+    emailInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { handleNewsletterSignup(); }
+    });
+  }
+});
+
+function showToast(title, msg) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.className = 'toast';
+    t.innerHTML = `
+      <div class="toast-icon">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div>
+        <div class="toast-title" id="toast-title">${title || 'Notice'}</div>
+        <div class="toast-msg" id="toast-msg">${msg || ''}</div>
+      </div>
+      <button class="toast-close" onclick="hideToast()">&times;</button>
+    `;
+    document.body.appendChild(t);
+  } else {
+    if (title) document.getElementById('toast-title').textContent = title;
+    if (msg) document.getElementById('toast-msg').textContent = msg;
+  }
+  t.classList.add('show');
+  setTimeout(hideToast, 5000);
+}
+
+function hideToast() {
+  const t = document.getElementById('toast');
+  if (t) t.classList.remove('show');
+}
+</script>

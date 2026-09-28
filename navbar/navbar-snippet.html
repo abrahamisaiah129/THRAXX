@@ -1,0 +1,41 @@
+<header>
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/" aria-label="Traxx home">
+        <div class="nav-logo-mark" aria-hidden="true">TX</div>
+        <span class="nav-logo-text">Traxx</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="/#platform">Platform</a></li>
+        <li><a href="/#use-cases">Solutions</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/about/">Company</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle colour theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="nav-signin" href="/login">Sign in</a>
+        <a class="btn btn-primary btn-nav-cta" href="/signup">Sign Up</a>
+        <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <a href="/#platform" onclick="closeMobileMenu()">Platform</a>
+    <a href="/#use-cases" onclick="closeMobileMenu()">Solutions</a>
+    <a href="/pricing" onclick="closeMobileMenu()">Pricing</a>
+    <a href="/about/" onclick="closeMobileMenu()">Company</a>
+    <div class="mobile-menu-divider"></div>
+    <div class="mobile-menu-cta">
+      <a class="btn btn-ghost" href="/login">Sign in</a>
+      <a class="btn btn-primary" href="/signup">Sign Up</a>
+    </div>
+  </nav>
+</header>
