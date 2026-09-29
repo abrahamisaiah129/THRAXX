@@ -11,6 +11,11 @@ export function GettingStartedSection() {
     const handleScroll = () => {
       if (!sectionRef.current || !scrollContainerRef.current) return;
       
+      if (window.innerWidth < 768) {
+        scrollContainerRef.current.style.transform = `none`;
+        return;
+      }
+      
       const { top, height } = sectionRef.current.getBoundingClientRect();
       const stickyHeight = window.innerHeight;
       
@@ -88,13 +93,13 @@ export function GettingStartedSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="relative h-[300vh] bg-blue-50 dark:bg-blue-950/20">
+    <section ref={sectionRef} className="relative md:h-[300vh] bg-blue-50 dark:bg-blue-950/20 py-16 md:py-0">
       
       {/* Sticky viewport container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
+      <div className="md:sticky md:top-0 md:h-screen w-full md:overflow-hidden flex flex-col md:flex-row md:items-center">
         
         {/* Floating Pinned Text Overlay */}
-        <div className="absolute inset-y-0 left-0 w-[100%] md:w-[45%] lg:w-[40%] bg-blue-50 dark:bg-[#020817] z-20 flex flex-col justify-center px-6 lg:pl-16 pointer-events-none">
+        <div className="relative md:absolute md:inset-y-0 md:left-0 w-full md:w-[45%] lg:w-[40%] bg-transparent md:bg-blue-50 md:dark:bg-[#020817] z-20 flex flex-col justify-center px-6 lg:pl-16 mb-12 md:mb-0 pointer-events-none">
           <div className="max-w-md pointer-events-auto">
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900 dark:text-white">
               Up and running in three simple steps.
@@ -112,12 +117,12 @@ export function GettingStartedSection() {
         {/* Horizontal Moving Stages */}
         <div 
           ref={scrollContainerRef}
-          className="flex flex-nowrap items-center will-change-transform pl-[100vw] md:pl-[45vw] lg:pl-[40vw] pr-[10vw]"
+          className="flex flex-col md:flex-row md:flex-nowrap md:items-center will-change-transform md:pl-[45vw] lg:pl-[40vw] md:pr-[10vw] gap-12 md:gap-0"
         >
           {stages.map((stage, idx) => (
             <div 
               key={stage.num}
-              className="w-[100vw] md:w-[55vw] lg:w-[60vw] shrink-0 bg-transparent relative group px-6 lg:px-12 py-12"
+              className="w-full md:w-[55vw] lg:w-[60vw] shrink-0 bg-transparent relative group px-6 lg:px-12 md:py-12"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
