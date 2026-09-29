@@ -37,8 +37,8 @@ export default function ArchitecturePage() {
       </section>
 
       {/* 2. PLATFORM OVERVIEW DIAGRAM */}
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-        <div className="bg-[#0b1736] border border-blue-900/50 rounded-[2.5rem] p-8 md:p-16 text-center text-white shadow-2xl">
+      <section className="py-24 px-6 bg-blue-50 dark:bg-blue-950/20 w-full border-y border-blue-100 dark:border-blue-900/30">
+        <div className="max-w-6xl mx-auto bg-[#0b1736] border border-blue-900/50 rounded-[2.5rem] p-8 md:p-16 text-center text-white shadow-2xl">
           <h2 className="text-3xl font-bold mb-16">The Traxx Ecosystem</h2>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative">
             
