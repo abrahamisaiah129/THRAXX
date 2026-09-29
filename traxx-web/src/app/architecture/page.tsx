@@ -14,9 +14,7 @@ export default function ArchitecturePage() {
       >
         <div className="absolute inset-0 bg-white/90 dark:bg-[#020817]/95" />
         <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <h2 className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4">
-            Platform Architecture
-          </h2>
+
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
             How Traxx works under the hood.
           </h1>
@@ -83,6 +81,13 @@ export default function ArchitecturePage() {
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900 dark:text-white max-w-3xl mx-auto">
             Three products, one source of truth.
           </h2>
+          <div className="relative w-full max-w-[900px] mx-auto mt-12 mb-16 transition-all duration-700 z-10">
+            <img
+              src="/images/hero-dashboard.png"
+              alt="Traxx dashboard and tracking"
+              className="w-full h-auto object-cover rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+            />
+          </div>
         </div>
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           <div className="relative p-8 rounded-[2rem] bg-blue-950 border border-blue-900/50 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
@@ -104,8 +109,7 @@ export default function ArchitecturePage() {
       <section className="py-24 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">The Pipeline</span>
-            <h2 className="text-4xl font-extrabold mb-8">Real-time tracking, evaluated instantly.</h2>
+            <h2 className="text-4xl font-extrabold mb-8 text-slate-900 dark:text-white leading-[1.1]">Real-time tracking, evaluated instantly.</h2>
             <div className="space-y-6">
               {[
                 "Phone reports exact GPS position every 5 seconds.",

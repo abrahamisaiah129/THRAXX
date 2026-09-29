@@ -58,8 +58,7 @@ export default function SolutionsPage() {
       <section className="py-24 px-6 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">The Fix</span>
-            <h2 className="text-4xl font-extrabold">How we handle the chaos.</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900 dark:text-white max-w-3xl mx-auto">How we handle the chaos.</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {problems.map((prob, i) => (
