@@ -26,7 +26,7 @@ export function SiteNavbar() {
 
   return (
     <nav 
-      className={`sticky top-0 z-[100] transition-all duration-300 ${
+      className={`fixed w-full top-0 z-[100] transition-all duration-300 ${
         isScrolled 
           ? "bg-white/95 dark:bg-[#020817]/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm" 
           : "bg-transparent border-transparent"
