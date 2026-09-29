@@ -37,7 +37,7 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
-          <Button className="w-full bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 shadow-none py-6 rounded-xl font-bold">Start Free</Button>
+          <Button size="lg" className="w-full bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 shadow-none font-bold">Start Free</Button>
         </div>
 
         {/* Growth */}
@@ -72,7 +72,7 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
-          <Button className="relative z-10 w-full bg-white text-blue-600 hover:bg-blue-50 shadow-none py-6 rounded-xl font-bold">Get Started</Button>
+          <Button size="lg" className="relative z-10 w-full bg-white text-blue-600 hover:bg-blue-50 shadow-none font-bold">Get Started</Button>
         </div>
 
         {/* Enterprise */}
@@ -102,7 +102,7 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
-          <Button className="w-full bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-none py-6 rounded-xl font-bold">Contact Sales</Button>
+          <Button size="lg" className="w-full bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-none font-bold">Contact Sales</Button>
         </div>
       </div>
 

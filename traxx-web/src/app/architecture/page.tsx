@@ -3,30 +3,38 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export default function ArchitecturePage() {
+  const wavePattern = `data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 30 0 60 20 T 120 20' fill='none' stroke='%2360a5fa' stroke-width='8' opacity='0.3'/%3E%3Cpath d='M0 40 Q 30 20 60 40 T 120 40' fill='none' stroke='%231e3a8a' stroke-width='8' opacity='0.3'/%3E%3C/svg%3E`;
+
   return (
     <div className="bg-white dark:bg-[#020817] text-slate-900 dark:text-slate-50 min-h-screen pb-24">
       {/* 1. HERO */}
-      <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center">
-        <h2 className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4">
-          Platform Architecture
-        </h2>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
-          How Traxx works under the hood.
-        </h1>
-        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
-          One platform, three products, built from the ground up for Nigerian roads and networks.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="#start-trial">
-            <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25 px-8 py-6 rounded-xl text-lg font-bold">
-              Start Free Trial
-            </Button>
-          </Link>
-          <Link href="/contact">
-            <Button variant="outline" className="w-full sm:w-auto px-8 py-6 rounded-xl text-lg font-bold border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900">
-              Book a Walkthrough
-            </Button>
-          </Link>
+      <section 
+        className="relative pt-32 pb-20 px-6 border-b border-slate-200 dark:border-slate-800"
+        style={{ backgroundImage: `url("${wavePattern}")`, backgroundSize: '120px 40px' }}
+      >
+        <div className="absolute inset-0 bg-white/90 dark:bg-[#020817]/95" />
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <h2 className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4">
+            Platform Architecture
+          </h2>
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
+            How Traxx works under the hood.
+          </h1>
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
+            One platform, three products, built from the ground up for Nigerian roads and networks.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="#start-trial">
+              <Button size="lg" className="w-full sm:w-auto font-bold px-8">
+                Start Free Trial
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold px-8">
+                Book a Walkthrough
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -211,10 +219,10 @@ export default function ArchitecturePage() {
             <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-medium">Set up your fleet in minutes and watch the data flow.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="#start-trial">
-                <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-slate-50 px-8 py-6 rounded-xl text-lg font-bold">Start Free Trial</Button>
+                <Button size="lg" className="w-full sm:w-auto bg-white text-blue-600 hover:bg-slate-50 font-bold px-8">Start Free Trial</Button>
               </Link>
               <Link href="/contact">
-                <Button className="w-full sm:w-auto bg-blue-700 text-white hover:bg-blue-800 border-none px-8 py-6 rounded-xl text-lg font-bold">Book a Walkthrough</Button>
+                <Button size="lg" className="w-full sm:w-auto bg-blue-700 text-white hover:bg-blue-800 border-none font-bold px-8">Book a Walkthrough</Button>
               </Link>
             </div>
           </div>

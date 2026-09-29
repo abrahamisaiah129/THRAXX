@@ -143,7 +143,7 @@ export default function CareersPage() {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl text-lg font-bold">Submit Application</Button>
+              <Button type="submit" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold">Submit Application</Button>
             </form>
           </div>
         )}

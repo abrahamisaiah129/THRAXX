@@ -267,7 +267,7 @@ export default function ContactPage() {
                     </label>
                   </div>
 
-                  <Button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl text-lg font-bold shadow-none disabled:opacity-70 disabled:cursor-not-allowed">
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-none disabled:opacity-70 disabled:cursor-not-allowed">
                     {isSubmitting ? "Sending Securely..." : "Submit Request"}
                   </Button>
                 </form>

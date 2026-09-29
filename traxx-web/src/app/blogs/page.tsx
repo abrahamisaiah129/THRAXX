@@ -106,7 +106,7 @@ export default function BlogsPage() {
         </div>
         
         <div className="mt-16 text-center">
-          <Button variant="outline" className="px-8 py-6 rounded-xl font-bold border-slate-200 dark:border-slate-800">Load More Posts</Button>
+          <Button variant="outline" size="lg" className="px-8 font-bold border-slate-200 dark:border-slate-800">Load More Posts</Button>
         </div>
       </section>
 
