@@ -78,23 +78,24 @@ export default function ArchitecturePage() {
       </section>
 
       {/* 3. THE THREE PRODUCTS */}
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">Our Suite</span>
-          <h2 className="text-4xl font-extrabold">Three products, one source of truth.</h2>
+      <section className="py-20 md:py-24 px-6 max-w-6xl mx-auto">
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900 dark:text-white max-w-3xl mx-auto">
+            Three products, one source of truth.
+          </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800">
-            <h3 className="text-2xl font-bold mb-4">Fleet Manager Dashboard</h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">The command center. View the live map, manage riders, create assignments, track shifts, handle billing, and configure fleet-wide settings.</p>
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          <div className="relative p-8 rounded-[2rem] bg-blue-950 border border-blue-900/50 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
+            <h3 className="text-2xl font-bold mb-4 text-white">Fleet Manager Dashboard</h3>
+            <p className="text-base text-blue-100/80 leading-relaxed font-medium">The command center. View the live map, manage riders, create assignments, track shifts, handle billing, and configure fleet-wide settings.</p>
           </div>
-          <div className="p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800">
-            <h3 className="text-2xl font-bold mb-4">Rider App</h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">A lightweight PWA for drivers. Handles deliveries, transmits live GPS data, sends status updates, and strictly manages shift sign-offs.</p>
+          <div className="relative p-8 rounded-[2rem] bg-blue-950 border border-blue-900/50 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
+            <h3 className="text-2xl font-bold mb-4 text-white">Rider App</h3>
+            <p className="text-base text-blue-100/80 leading-relaxed font-medium">A lightweight PWA for drivers. Handles deliveries, transmits live GPS data, sends status updates, and strictly manages shift sign-offs.</p>
           </div>
-          <div className="p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800">
-            <h3 className="text-2xl font-bold mb-4">Customer Tracking Page</h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">A frictionless tracking link opened directly in the browser. No app download required for your customers to see exactly where their delivery is.</p>
+          <div className="relative p-8 rounded-[2rem] bg-blue-950 border border-blue-900/50 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
+            <h3 className="text-2xl font-bold mb-4 text-white">Customer Tracking Page</h3>
+            <p className="text-base text-blue-100/80 leading-relaxed font-medium">A frictionless tracking link opened directly in the browser. No app download required for your customers to see exactly where their delivery is.</p>
           </div>
         </div>
       </section>
