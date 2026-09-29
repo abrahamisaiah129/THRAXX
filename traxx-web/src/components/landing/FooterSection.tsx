@@ -36,16 +36,26 @@ export function FooterSection() {
               Product
             </h4>
             <ul className="space-y-3 text-sm">
-              {["Web Dashboard", "Rider App", "System Status"].map((link) => (
-                <li key={link}>
-                  <Link
-                    href="#"
-                    className="hover:text-white transition-colors"
-                  >
-                    {link}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="#" className="hover:text-white transition-colors">
+                  Web Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-white transition-colors">
+                  Rider App
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-white transition-colors">
+                  System Status
+                </Link>
+              </li>
+              <li>
+                <Link href="#start-trial" className="hover:text-white transition-colors text-blue-400 font-semibold">
+                  Download App
+                </Link>
+              </li>
             </ul>
           </div>
 
