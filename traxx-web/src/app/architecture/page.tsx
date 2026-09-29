@@ -40,20 +40,20 @@ export default function ArchitecturePage() {
 
       {/* 2. PLATFORM OVERVIEW DIAGRAM */}
       <section className="py-16 px-6 max-w-6xl mx-auto">
-        <div className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-16 text-center">
+        <div className="bg-[#0b1736] border border-blue-900/50 rounded-[2.5rem] p-8 md:p-16 text-center text-white shadow-2xl">
           <h2 className="text-3xl font-bold mb-16">The Traxx Ecosystem</h2>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative">
             
             {/* Desktop Connectors */}
-            <div className="hidden md:block absolute top-1/2 left-[20%] right-[20%] h-[2px] bg-gradient-to-r from-blue-400 via-amber-400 to-blue-400 opacity-30 -translate-y-1/2"></div>
+            <div className="hidden md:block absolute top-1/2 left-[20%] right-[20%] h-[2px] bg-gradient-to-r from-blue-500 via-amber-400 to-blue-500 opacity-40 -translate-y-1/2"></div>
             
             {/* Step 1 */}
-            <div className="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative z-10 w-full md:w-64">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center text-blue-600 mb-4 mx-auto">
+            <div className="bg-blue-950/50 backdrop-blur p-6 rounded-2xl border border-blue-900/50 shadow-sm relative z-10 w-full md:w-64">
+              <div className="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center text-blue-400 mb-4 mx-auto">
                 <Smartphone className="w-6 h-6" />
               </div>
-              <h3 className="font-bold mb-2">Rider App (PWA)</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Reports GPS every 5s. Receives assignments & status updates.</p>
+              <h3 className="font-bold mb-2 text-white">Rider App (PWA)</h3>
+              <p className="text-sm text-blue-200/70">Reports GPS every 5s. Receives assignments & status updates.</p>
             </div>
 
             {/* Step 2 */}
@@ -66,12 +66,12 @@ export default function ArchitecturePage() {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative z-10 w-full md:w-64">
-              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/40 rounded-xl flex items-center justify-center text-amber-600 mb-4 mx-auto">
+            <div className="bg-blue-950/50 backdrop-blur p-6 rounded-2xl border border-blue-900/50 shadow-sm relative z-10 w-full md:w-64">
+              <div className="w-12 h-12 bg-amber-900/40 rounded-xl flex items-center justify-center text-amber-400 mb-4 mx-auto">
                 <MonitorSmartphone className="w-6 h-6" />
               </div>
-              <h3 className="font-bold mb-2">Visibility</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Fleet manager dashboard & public customer tracking links.</p>
+              <h3 className="font-bold mb-2 text-white">Visibility</h3>
+              <p className="text-sm text-blue-200/70">Fleet manager dashboard & public customer tracking links.</p>
             </div>
           </div>
         </div>
