@@ -67,7 +67,7 @@ export default function ArchitecturePage() {
 
             {/* Step 3 */}
             <div className="bg-blue-950/50 backdrop-blur p-6 rounded-2xl border border-blue-900/50 shadow-sm relative z-10 w-full md:w-64">
-              <div className="w-12 h-12 bg-amber-900/40 rounded-xl flex items-center justify-center text-amber-400 mb-4 mx-auto">
+              <div className="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center text-blue-400 mb-4 mx-auto">
                 <MonitorSmartphone className="w-6 h-6" />
               </div>
               <h3 className="font-bold mb-2 text-white">Visibility</h3>
