@@ -36,20 +36,26 @@ export function SiteNavbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 no-underline transition-transform active:scale-[0.97] duration-200 ease-out text-slate-900 dark:text-white"
+          className="flex items-center gap-3 no-underline transition-transform active:scale-[0.97] duration-200 ease-out"
           aria-label="Traxx Home"
         >
           <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white relative shadow-md">
             TX
             <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-amber-500 rounded-full border-2 border-white dark:border-slate-900 transition-colors"></div>
           </div>
-          <span className="font-bold text-2xl tracking-tight transition-colors">
+          <span className="font-bold text-2xl tracking-tight text-slate-900 dark:text-white transition-colors">
             Traxx
           </span>
         </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
+          <Link
+            href="/"
+            className="text-sm font-semibold tracking-[-0.02em] text-slate-600 dark:text-slate-300 transition-colors hover:text-slate-900 dark:hover:text-white active:scale-[0.97] ease-out"
+          >
+            Home
+          </Link>
           <Link
             href="/architecture"
             className="text-sm font-semibold tracking-[-0.02em] text-slate-600 dark:text-slate-300 transition-colors hover:text-slate-900 dark:hover:text-white active:scale-[0.97] ease-out"
@@ -154,6 +160,12 @@ export function SiteNavbar() {
         <div className="text-xs font-bold uppercase tracking-[1.5px] text-blue-600 mb-2 mt-2">
           Explore
         </div>
+        <Link
+          href="/"
+          className="py-3 text-base font-semibold tracking-[-0.02em] text-slate-600 dark:text-slate-300 no-underline transition-colors hover:text-slate-900 dark:hover:text-white active:scale-[0.97] ease-out"
+        >
+          Home
+        </Link>
         <Link
           href="/architecture"
           className="py-3 text-base font-semibold tracking-[-0.02em] text-slate-600 dark:text-slate-300 no-underline transition-colors hover:text-slate-900 dark:hover:text-white active:scale-[0.97] ease-out"
