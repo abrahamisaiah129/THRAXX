@@ -20,6 +20,9 @@ export const metadata: Metadata = {
 };
 
 import { PlatformSelectModal } from "@/components/modals/PlatformSelectModal";
+import { SiteNavbar } from "@/components/layout/SiteNavbar";
+import { FooterSection } from "@/components/landing/FooterSection";
+import { FloatingContactButton } from "@/components/layout/FloatingContactButton";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -30,8 +33,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="min-h-full flex flex-col relative">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <SiteNavbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <FooterSection />
           <PlatformSelectModal />
+          <FloatingContactButton />
         </ThemeProvider>
       </body>
     </html>

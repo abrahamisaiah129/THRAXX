@@ -64,23 +64,30 @@ export function FooterSection() {
               Company & Support
             </h4>
             <ul className="space-y-3 text-sm">
-              {[
-                "About Traxx",
-                "Careers",
-                "Blog",
-                "Contact Us",
-                "Help Centre",
-                "FAQs",
-              ].map((link) => (
-                <li key={link}>
-                  <Link
-                    href="#"
-                    className="hover:text-white transition-colors"
-                  >
-                    {link}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/architecture" className="hover:text-white transition-colors">Architecture</Link>
+              </li>
+              <li>
+                <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+              </li>
+              <li>
+                <Link href="/careers" className="hover:text-white transition-colors">Careers</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-white transition-colors">Help Centre</Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-white transition-colors">FAQs</Link>
+              </li>
             </ul>
           </div>
         </div>
