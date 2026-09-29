@@ -7,9 +7,9 @@ export default function ArchitecturePage() {
     <div className="bg-white dark:bg-[#020817] text-slate-900 dark:text-slate-50 min-h-screen pb-24">
       {/* 1. HERO */}
       <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-700 dark:text-blue-400 text-sm font-bold uppercase tracking-widest mb-8">
-          <Server className="w-4 h-4" /> Platform Architecture
-        </div>
+        <h2 className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-4">
+          Platform Architecture
+        </h2>
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
           How Traxx works under the hood.
         </h1>
