@@ -17,16 +17,16 @@ export default function ArchitecturePage() {
           One platform, three products, built from the ground up for Nigerian roads and networks.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/signup">
+          <Link href="#start-trial">
             <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25 px-8 py-6 rounded-xl text-lg font-bold">
-              Sign up
+              Start Free Trial
             </Button>
           </Link>
-          <a href="https://calendly.com/contact-traxx" target="_blank" rel="noopener noreferrer">
+          <Link href="/contact">
             <Button variant="outline" className="w-full sm:w-auto px-8 py-6 rounded-xl text-lg font-bold border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900">
-              Book a demo
+              Book a Walkthrough
             </Button>
-          </a>
+          </Link>
         </div>
       </section>
 
