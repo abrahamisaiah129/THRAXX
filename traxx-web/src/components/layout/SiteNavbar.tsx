@@ -36,14 +36,14 @@ export function SiteNavbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 no-underline transition-transform active:scale-[0.97] duration-200 ease-out"
+          className="flex items-center gap-3 no-underline transition-transform active:scale-[0.97] duration-200 ease-out text-slate-900 dark:text-white"
           aria-label="Traxx Home"
         >
           <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white relative shadow-md">
             TX
             <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-amber-500 rounded-full border-2 border-white dark:border-slate-900 transition-colors"></div>
           </div>
-          <span className="font-bold text-2xl tracking-tight text-slate-900 dark:text-white transition-colors">
+          <span className="font-bold text-2xl tracking-tight transition-colors">
             Traxx
           </span>
         </Link>

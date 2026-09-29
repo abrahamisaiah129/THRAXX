@@ -49,14 +49,13 @@ export function PlatformSelectModal() {
         </button>
 
         <div className="p-8 text-center">
-          {/* Logo */}
           <div className="flex justify-center mb-6">
-            <div className="flex items-center gap-3 no-underline">
+            <div className="flex items-center gap-3 no-underline text-slate-900 dark:text-white">
               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white relative shadow-md">
                 TX
                 <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-amber-500 rounded-full border-2 border-white dark:border-slate-900 transition-colors"></div>
               </div>
-              <span className="font-bold text-2xl tracking-tight text-slate-900 dark:text-white transition-colors">
+              <span className="font-bold text-2xl tracking-tight transition-colors">
                 Traxx
               </span>
             </div>
