@@ -210,12 +210,12 @@ export default function ArchitecturePage() {
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Ready to see it in action?</h2>
             <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-medium">Set up your fleet in minutes and watch the data flow.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/signup">
+              <Link href="#start-trial">
                 <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-slate-50 px-8 py-6 rounded-xl text-lg font-bold">Start Free Trial</Button>
               </Link>
-              <a href="https://calendly.com/contact-traxx" target="_blank" rel="noopener noreferrer">
+              <Link href="/contact">
                 <Button className="w-full sm:w-auto bg-blue-700 text-white hover:bg-blue-800 border-none px-8 py-6 rounded-xl text-lg font-bold">Book a Walkthrough</Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

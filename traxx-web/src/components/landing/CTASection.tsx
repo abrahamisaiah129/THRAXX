@@ -28,13 +28,15 @@ export function CTASection() {
             Get set up in under 3 minutes. No setup fees. No annual contracts.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Button
-              variant="secondary"
-              size="lg"
-              className="w-full sm:w-auto text-blue-600 font-bold"
-            >
-              Book a Walkthrough
-            </Button>
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full text-blue-600 font-bold"
+              >
+                Book a Walkthrough
+              </Button>
+            </Link>
             <Link href="#start-trial" className="w-full sm:w-auto">
               <Button
                 size="lg"
