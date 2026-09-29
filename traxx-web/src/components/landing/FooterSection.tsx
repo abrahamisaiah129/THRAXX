@@ -69,7 +69,7 @@ export function FooterSection() {
                 <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+                <Link href="/blogs" className="hover:text-white transition-colors">Blog</Link>
               </li>
               <li>
                 <Link href="/careers" className="hover:text-white transition-colors">Careers</Link>

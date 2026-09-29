@@ -69,7 +69,7 @@ export function SiteNavbar() {
             Pricing
           </Link>
           <Link
-            href="/blog"
+            href="/blogs"
             className="text-sm font-semibold tracking-[-0.02em] text-slate-600 dark:text-slate-300 transition-colors hover:text-slate-900 dark:hover:text-white active:scale-[0.97] ease-out"
           >
             Blog
@@ -173,7 +173,7 @@ export function SiteNavbar() {
           Pricing
         </Link>
         <Link
-          href="/blog"
+          href="/blogs"
           className="py-3 text-base font-semibold tracking-[-0.02em] text-slate-600 dark:text-slate-300 no-underline transition-colors hover:text-slate-900 dark:hover:text-white active:scale-[0.97] ease-out"
         >
           Blog

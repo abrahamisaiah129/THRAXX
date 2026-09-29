@@ -1,5 +1,7 @@
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { CostOfChaosSection } from "@/components/landing/CostOfChaosSection";
+import { CTASection } from "@/components/landing/CTASection";
 
 export default function PricingPage() {
   return (
@@ -103,6 +105,56 @@ export default function PricingPage() {
           <Button className="w-full bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-none py-6 rounded-xl font-bold">Contact Sales</Button>
         </div>
       </div>
+
+      {/* Notes & Trust Row */}
+      <div className="max-w-4xl mx-auto mt-12 text-center">
+        <p className="text-slate-500 text-sm font-medium mb-12">Rider count is based on active riders on your account, not seats you have paid for. Growing past a tier does not cut you off. You choose when to upgrade.</p>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-slate-200 dark:border-slate-800">
+          <div><h4 className="font-bold text-sm mb-1">No hidden fees</h4><p className="text-xs text-slate-500">The price you see is what you pay.</p></div>
+          <div><h4 className="font-bold text-sm mb-1">Data stays yours</h4><p className="text-xs text-slate-500">Fully NDPR compliant.</p></div>
+          <div><h4 className="font-bold text-sm mb-1">Cancel anytime</h4><p className="text-xs text-slate-500">No lock-in contracts.</p></div>
+          <div><h4 className="font-bold text-sm mb-1">Set up in minutes</h4><p className="text-xs text-slate-500">No sales calls required.</p></div>
+        </div>
+      </div>
+
+      {/* Why teams upgrade */}
+      <div className="mt-12">
+        <CostOfChaosSection />
+      </div>
+
+      {/* FAQ */}
+      <section className="py-24 mt-12">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold mb-4">Pricing FAQ</h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              { q: "Do I need a card to start on Freemium?", a: "No. Freemium never asks for payment details. You only add a payment method when you choose to upgrade to Growth." },
+              { q: "What happens if I add a 6th rider?", a: "Your 6th rider will be added to the system seamlessly. We will simply let you know it is time to move to the Growth plan, and you choose when to upgrade." },
+              { q: "Can I move from Growth back down to Freemium?", a: "Yes. If your active rider count drops back to 5 or below, you can switch back to the Freemium tier at the end of your billing cycle." },
+              { q: "How does payment work?", a: "Growth is billed monthly through Paystack, so you can pay with a debit card, bank transfer, or USSD. Enterprise billing is arranged directly with our sales team." },
+              { q: "Are there long-term contracts?", a: "Freemium and Growth have no lock-in contract. Cancel whenever you like. Enterprise plans include a custom SLA and support agreement." },
+            ].map((faq, i) => (
+              <details key={i} className="group bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl cursor-pointer border border-slate-200 dark:border-slate-800 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between font-bold text-lg text-slate-900 dark:text-white">
+                  {faq.q}
+                  <span className="transition group-open:rotate-180">
+                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                  </span>
+                </summary>
+                <p className="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed font-medium">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA BANNER */}
+      <CTASection />
     </div>
   );
 }
