@@ -26,7 +26,7 @@ export default function ArchitecturePage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#start-trial">
-              <Button size="lg" className="w-full sm:w-auto font-bold px-8 bg-white text-blue-600 hover:bg-blue-50 border-white">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto font-bold px-8 !text-blue-600 border-none">
                 Start Free Trial
               </Button>
             </Link>
@@ -225,7 +225,7 @@ export default function ArchitecturePage() {
             <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-medium">Set up your fleet in minutes and watch the data flow.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="#start-trial">
-                <Button size="lg" className="w-full sm:w-auto bg-white text-blue-600 hover:bg-slate-50 font-bold px-8">Start Free Trial</Button>
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto font-bold px-8 !text-blue-600 border-none">Start Free Trial</Button>
               </Link>
               <Link href="/contact">
                 <Button size="lg" className="w-full sm:w-auto bg-blue-700 text-white hover:bg-blue-800 border-none font-bold px-8">Book a Walkthrough</Button>
