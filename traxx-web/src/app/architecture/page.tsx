@@ -127,10 +127,7 @@ export default function ArchitecturePage() {
             </div>
           </div>
           <div className="bg-[#0b1736] p-8 rounded-[2rem] border border-blue-900/50 shadow-xl text-white">
-            <div className="flex items-center gap-3 mb-6">
-              <ShieldAlert className="w-8 h-8 text-amber-400" />
-              <h3 className="text-2xl font-bold">Flag Detection Engine</h3>
-            </div>
+            <h3 className="text-2xl font-bold mb-6 text-amber-400">Flag Detection Engine</h3>
             <p className="text-blue-100/80 mb-6">
               Traxx automatically detects operational anomalies with a 95%+ accuracy rate.
             </p>
