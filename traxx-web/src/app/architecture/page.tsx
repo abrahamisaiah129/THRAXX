@@ -76,31 +76,33 @@ export default function ArchitecturePage() {
       </section>
 
       {/* 3. THE THREE PRODUCTS */}
-      <section className="py-20 md:py-24 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900 dark:text-white max-w-3xl mx-auto">
-            Three products, one source of truth.
-          </h2>
-          <div className="relative w-full max-w-[900px] mx-auto mt-12 mb-16 transition-all duration-700 z-10">
-            <img
-              src="/images/hero-dashboard.png"
-              alt="Traxx dashboard and tracking"
-              className="w-full h-auto object-cover rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-            />
+      <section className="py-24 px-6 bg-blue-900 w-full">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-white max-w-3xl mx-auto">
+              Three products, one source of truth.
+            </h2>
+            <div className="relative w-full max-w-[900px] mx-auto mt-12 mb-16 transition-all duration-700 z-10">
+              <img
+                src="/images/hero-dashboard.png"
+                alt="Traxx dashboard and tracking"
+                className="w-full h-auto object-cover rounded-[2rem] border border-blue-800 shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+              />
+            </div>
           </div>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          <div className="relative p-8 rounded-[2rem] bg-blue-950 border border-blue-900/50 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-2xl font-bold mb-4 text-white">Fleet Manager Dashboard</h3>
-            <p className="text-base text-blue-100/80 leading-relaxed font-medium">The command center. View the live map, manage riders, create assignments, track shifts, handle billing, and configure fleet-wide settings.</p>
-          </div>
-          <div className="relative p-8 rounded-[2rem] bg-blue-950 border border-blue-900/50 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-2xl font-bold mb-4 text-white">Rider App</h3>
-            <p className="text-base text-blue-100/80 leading-relaxed font-medium">A lightweight PWA for drivers. Handles deliveries, transmits live GPS data, sends status updates, and strictly manages shift sign-offs.</p>
-          </div>
-          <div className="relative p-8 rounded-[2rem] bg-blue-950 border border-blue-900/50 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-2xl font-bold mb-4 text-white">Customer Tracking Page</h3>
-            <p className="text-base text-blue-100/80 leading-relaxed font-medium">A frictionless tracking link opened directly in the browser. No app download required for your customers to see exactly where their delivery is.</p>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            <div className="relative p-8 rounded-[2rem] bg-blue-50 border border-blue-100 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-4 text-blue-950">Fleet Manager Dashboard</h3>
+              <p className="text-base text-blue-900/80 leading-relaxed font-medium">The command center. View the live map, manage riders, create assignments, track shifts, handle billing, and configure fleet-wide settings.</p>
+            </div>
+            <div className="relative p-8 rounded-[2rem] bg-blue-50 border border-blue-100 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-4 text-blue-950">Rider App</h3>
+              <p className="text-base text-blue-900/80 leading-relaxed font-medium">A lightweight PWA for drivers. Handles deliveries, transmits live GPS data, sends status updates, and strictly manages shift sign-offs.</p>
+            </div>
+            <div className="relative p-8 rounded-[2rem] bg-blue-50 border border-blue-100 shadow-xl flex flex-col h-full group hover:-translate-y-1 transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-4 text-blue-950">Customer Tracking Page</h3>
+              <p className="text-base text-blue-900/80 leading-relaxed font-medium">A frictionless tracking link opened directly in the browser. No app download required for your customers to see exactly where their delivery is.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -124,21 +126,21 @@ export default function ArchitecturePage() {
               ))}
             </div>
           </div>
-          <div className="bg-white dark:bg-slate-950 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-xl">
+          <div className="bg-[#0b1736] p-8 rounded-[2rem] border border-blue-900/50 shadow-xl text-white">
             <div className="flex items-center gap-3 mb-6">
-              <ShieldAlert className="w-8 h-8 text-amber-500" />
+              <ShieldAlert className="w-8 h-8 text-amber-400" />
               <h3 className="text-2xl font-bold">Flag Detection Engine</h3>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">
+            <p className="text-blue-100/80 mb-6">
               Traxx automatically detects operational anomalies with a 95%+ accuracy rate.
             </p>
             <ul className="space-y-4 mb-6">
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-500" /> Route deviation</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-500" /> Unassigned movement</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-500" /> Prolonged idle alerts</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-500" /> Unauthorised disengagement</li>
+              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-400" /> Route deviation</li>
+              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-400" /> Unassigned movement</li>
+              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-400" /> Prolonged idle alerts</li>
+              <li className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-amber-400" /> Unauthorised disengagement</li>
             </ul>
-            <div className="p-4 bg-amber-50 dark:bg-amber-500/10 rounded-xl border border-amber-200 dark:border-amber-500/20 text-sm font-medium text-amber-900 dark:text-amber-200">
+            <div className="p-4 bg-blue-950 rounded-xl border border-blue-800 text-sm font-medium text-blue-200">
               <strong>Fair Flagging:</strong> The engine differentiates between genuine traffic stops and actual idle violations.
             </div>
           </div>
