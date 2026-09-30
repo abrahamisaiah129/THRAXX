@@ -222,11 +222,15 @@ export default function ArchitecturePage() {
 
       {/* 11. CTA */}
       <section className="py-24 px-6 max-w-5xl mx-auto">
-        <div className="bg-blue-600 rounded-[3rem] p-12 text-center text-white shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+        <div 
+          className="bg-blue-900 rounded-[3rem] p-12 text-center text-white shadow-2xl relative overflow-hidden border border-blue-800"
+          style={{ backgroundImage: `url("${wavePattern}")`, backgroundSize: '120px 40px' }}
+        >
+          <div className="absolute inset-0 bg-blue-950/80" />
+          <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none z-10">
              <div className="text-9xl font-black">TX</div>
           </div>
-          <div className="relative z-10">
+          <div className="relative z-20">
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Ready to see it in action?</h2>
             <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-medium">Set up your fleet in minutes and watch the data flow.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -234,7 +238,7 @@ export default function ArchitecturePage() {
                 <Button variant="secondary" size="lg" className="w-full sm:w-auto font-bold px-8 !text-blue-600 border-none">Start Free Trial</Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" className="w-full sm:w-auto bg-blue-700 text-white hover:bg-blue-800 border-none font-bold px-8">Book a Walkthrough</Button>
+                <Button size="lg" className="w-full sm:w-auto bg-blue-800 text-white hover:bg-blue-700 border border-blue-600 font-bold px-8">Book a Walkthrough</Button>
               </Link>
             </div>
           </div>
