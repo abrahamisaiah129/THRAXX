@@ -8,7 +8,7 @@ export default function ArchitecturePage() {
   return (
     <div className="bg-white dark:bg-[#020817] text-slate-900 dark:text-slate-50 min-h-screen pb-24">
       {/* Spacer for fixed transparent navbar */}
-      <div className="h-[96px] md:h-[136px] w-full bg-white dark:bg-[#020817]"></div>
+      <div className="h-[72px] md:h-[96px] w-full bg-white dark:bg-[#020817]"></div>
 
       {/* 1. HERO */}
       <section 
