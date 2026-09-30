@@ -185,7 +185,9 @@ export default function ArchitecturePage() {
             <span className="px-6 py-3 bg-blue-900/50 backdrop-blur text-blue-100 border border-blue-800 rounded-full font-bold shadow-sm">Paystack Billing</span>
             <span className="px-6 py-3 bg-blue-900/50 backdrop-blur text-blue-100 border border-blue-800 rounded-full font-bold shadow-sm">WhatsApp / SMS / Email Links</span>
             <span className="px-6 py-3 bg-blue-900/50 backdrop-blur text-blue-100 border border-blue-800 rounded-full font-bold shadow-sm">Google Maps</span>
-            <span className="px-6 py-3 bg-[#0b1736] text-white border border-blue-700 rounded-full font-bold shadow-xl flex items-center gap-2">API Access <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] rounded uppercase tracking-wider">Enterprise Soon</span></span>
+            <a href={process.env.NEXT_PUBLIC_POSTMAN_URL || "https://postman.com"} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-[#0b1736] text-white border border-blue-700 hover:bg-blue-900 transition-colors rounded-full font-bold shadow-xl flex items-center gap-2 cursor-pointer">
+              API Access
+            </a>
           </div>
         </div>
       </section>
