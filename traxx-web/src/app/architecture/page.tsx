@@ -7,12 +7,9 @@ export default function ArchitecturePage() {
 
   return (
     <div className="bg-white dark:bg-[#020817] text-slate-900 dark:text-slate-50 min-h-screen pb-24">
-      {/* Spacer for fixed transparent navbar */}
-      <div className="h-[56px] md:h-[80px] w-full bg-white dark:bg-[#020817]"></div>
-
       {/* 1. HERO */}
       <section 
-        className="relative pt-12 pb-20 px-6 bg-blue-900 text-white overflow-hidden"
+        className="relative pt-12 pb-20 px-6 bg-blue-900 text-white overflow-hidden min-h-[80vh] flex flex-col justify-center"
         style={{ backgroundImage: `url("${wavePattern}")`, backgroundSize: '120px 40px' }}
       >
         <div className="absolute inset-0 bg-blue-950/80" />
