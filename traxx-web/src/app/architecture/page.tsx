@@ -148,28 +148,27 @@ export default function ArchitecturePage() {
       </section>
 
       {/* 6, 7 & 8. DATA, SECURITY, RELIABILITY */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-[2rem]">
-            <FileSearch className="w-10 h-10 text-blue-600 mb-6" />
+      <section className="py-24 px-6 bg-black w-full text-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          <div className="p-8 bg-zinc-900 rounded-[2rem] border border-zinc-800">
+            <FileSearch className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-bold mb-3">Data & Audit Trail</h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">Every trip is timestamped. Export logs via PDF/CSV with two clicks. Visual GPS route replay available for post-trip review.</p>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">90-day GPS retention.</p>
+            <p className="text-zinc-400 text-sm mb-4">Every trip is timestamped. Export logs via PDF/CSV with two clicks. Visual GPS route replay available for post-trip review.</p>
+            <p className="text-sm font-bold text-white">90-day GPS retention.</p>
           </div>
-          <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-[2rem]">
-            <ShieldCheck className="w-10 h-10 text-blue-600 mb-6" />
+          <div className="p-8 bg-zinc-900 rounded-[2rem] border border-zinc-800">
+            <ShieldCheck className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-bold mb-3">Security & Compliance</h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">Role-based access enforced server-side. Encrypted delivery records at every plan level. All riders are KYC-verified.</p>
-            <div className="flex gap-2 text-xs font-bold uppercase text-slate-500 mt-auto">
-              <span className="px-2 py-1 bg-white dark:bg-slate-800 rounded">NDPR Compliant</span>
-              <span className="px-2 py-1 bg-white dark:bg-slate-800 rounded">SSL Encrypted</span>
+            <p className="text-zinc-400 text-sm mb-4">Role-based access enforced server-side. Encrypted delivery records at every plan level. All riders are KYC-verified.</p>
+            <div className="flex gap-2 text-xs font-bold uppercase text-zinc-500 mt-auto">
+              <span className="px-2 py-1 bg-zinc-800 text-zinc-300 rounded">NDPR Compliant</span>
+              <span className="px-2 py-1 bg-zinc-800 text-zinc-300 rounded">SSL Encrypted</span>
             </div>
           </div>
-          <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-[2rem]">
-            <Activity className="w-10 h-10 text-blue-600 mb-6" />
+          <div className="p-8 bg-zinc-900 rounded-[2rem] border border-zinc-800">
+            <Activity className="w-10 h-10 text-white mb-6" />
             <h3 className="text-xl font-bold mb-3">Offline Reliability</h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">When network drops, the Rider App caches GPS coordinates locally. Once connection returns, data syncs seamlessly to the cloud. No missing miles.</p>
-            <Link href="/system-status" className="text-sm font-bold text-blue-600 mt-4 inline-block hover:underline">View System Status &rarr;</Link>
+            <p className="text-zinc-400 text-sm">When network drops, the Rider App caches GPS coordinates locally. Once connection returns, data syncs seamlessly to the cloud. No missing miles.</p>
           </div>
         </div>
       </section>
