@@ -9,26 +9,26 @@ export default function ArchitecturePage() {
     <div className="bg-white dark:bg-[#020817] text-slate-900 dark:text-slate-50 min-h-screen pb-24">
       {/* 1. HERO */}
       <section 
-        className="relative pt-32 pb-20 px-6 border-b border-slate-200 dark:border-slate-800"
+        className="relative pt-32 pb-20 px-6 bg-blue-900 text-white overflow-hidden"
         style={{ backgroundImage: `url("${wavePattern}")`, backgroundSize: '120px 40px' }}
       >
-        <div className="absolute inset-0 bg-white/90 dark:bg-[#020817]/95" />
+        <div className="absolute inset-0 bg-blue-950/80" />
         <div className="relative z-10 max-w-5xl mx-auto text-center">
 
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
             How Traxx works under the hood.
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-10">
             One platform, three products, built from the ground up for Nigerian roads and networks.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#start-trial">
-              <Button size="lg" className="w-full sm:w-auto font-bold px-8">
+              <Button size="lg" className="w-full sm:w-auto font-bold px-8 bg-white text-blue-600 hover:bg-blue-50 border-white">
                 Start Free Trial
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold px-8">
+              <Button size="lg" className="w-full sm:w-auto font-bold px-8 bg-transparent text-white border-2 border-white/50 hover:border-white hover:bg-white/10">
                 Book a Walkthrough
               </Button>
             </Link>
