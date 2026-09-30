@@ -174,13 +174,19 @@ export default function ArchitecturePage() {
       </section>
 
       {/* 9. INTEGRATIONS */}
-      <section className="py-16 px-6 max-w-4xl mx-auto text-center border-t border-slate-200 dark:border-slate-800">
-        <h2 className="text-3xl font-bold mb-12">Seamless Integrations</h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          <span className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full font-bold shadow-sm">Paystack Billing</span>
-          <span className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full font-bold shadow-sm">WhatsApp / SMS / Email Links</span>
-          <span className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full font-bold shadow-sm">Google Maps</span>
-          <span className="px-6 py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-bold shadow-sm flex items-center gap-2">API Access <span className="px-2 py-0.5 bg-blue-200 dark:bg-blue-800 text-[10px] rounded uppercase tracking-wider">Enterprise Soon</span></span>
+      <section 
+        className="relative py-24 px-6 text-center bg-blue-900 text-white overflow-hidden w-full"
+        style={{ backgroundImage: `url("${wavePattern}")`, backgroundSize: '120px 40px' }}
+      >
+        <div className="absolute inset-0 bg-blue-950/80" />
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h2 className="text-4xl font-extrabold mb-12">Seamless Integrations</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <span className="px-6 py-3 bg-blue-900/50 backdrop-blur text-blue-100 border border-blue-800 rounded-full font-bold shadow-sm">Paystack Billing</span>
+            <span className="px-6 py-3 bg-blue-900/50 backdrop-blur text-blue-100 border border-blue-800 rounded-full font-bold shadow-sm">WhatsApp / SMS / Email Links</span>
+            <span className="px-6 py-3 bg-blue-900/50 backdrop-blur text-blue-100 border border-blue-800 rounded-full font-bold shadow-sm">Google Maps</span>
+            <span className="px-6 py-3 bg-[#0b1736] text-white border border-blue-700 rounded-full font-bold shadow-xl flex items-center gap-2">API Access <span className="px-2 py-0.5 bg-blue-600 text-white text-[10px] rounded uppercase tracking-wider">Enterprise Soon</span></span>
+          </div>
         </div>
       </section>
 
