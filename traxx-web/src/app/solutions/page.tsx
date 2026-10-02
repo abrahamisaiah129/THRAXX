@@ -55,18 +55,18 @@ export default function SolutionsPage() {
       </section>
 
       {/* 2. PROBLEM TABS (CARDS) */}
-      <section className="py-24 px-6 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-200 dark:border-slate-800">
+      <section className="py-24 px-6 bg-blue-900 border-y border-blue-800">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900 dark:text-white max-w-3xl mx-auto">How we handle the chaos.</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-white max-w-3xl mx-auto">How we handle the chaos.</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {problems.map((prob, i) => (
-              <div key={i} className="bg-white dark:bg-slate-950 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-500/50 transition-colors">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                  <prob.icon className="w-6 h-6" />
+              <div key={i} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white dark:bg-[#020817] p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6">
+                  <prob.icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{prob.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">{prob.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{prob.desc}</p>
               </div>
             ))}
