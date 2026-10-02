@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/landing/CTASection";
 
 export default function BlogsPage() {
+  const wavePattern = `data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 30 0 60 20 T 120 20' fill='none' stroke='%2360a5fa' stroke-width='8' opacity='0.3'/%3E%3Cpath d='M0 40 Q 30 20 60 40 T 120 40' fill='none' stroke='%231e3a8a' stroke-width='8' opacity='0.3'/%3E%3C/svg%3E`;
   const categories = ["All", "Fleet management", "Rider accountability", "Customer experience", "Nigerian logistics", "Product updates"];
   
   const posts = [
@@ -36,17 +37,23 @@ export default function BlogsPage() {
   return (
     <div className="bg-white dark:bg-[#020817] text-slate-900 dark:text-slate-50 min-h-screen">
       {/* 1. HERO (Featured Post) */}
-      <section className="pt-32 pb-16 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-            The Traxx <span className="text-blue-600">Log.</span>
+      <section 
+        className="relative pt-12 pb-20 px-6 bg-blue-900 text-white overflow-hidden min-h-[60vh] flex flex-col justify-center"
+        style={{ backgroundImage: `url("${wavePattern}")`, backgroundSize: '120px 40px' }}
+      >
+        <div className="absolute inset-0 bg-blue-950/80" />
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
+            The Traxx <span className="text-blue-400">Log.</span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed mb-10">
             Insights on physical operations, rider accountability, and scaling logistics across Nigeria.
           </p>
         </div>
+      </section>
 
-        {/* Featured Post Card */}
+      {/* Featured Post */}
+      <section className="px-6 py-16 max-w-6xl mx-auto">
         <Link href="/blogs/how-to-scale-delivery" className="group block bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] p-4 md:p-6 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-colors">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="aspect-[4/3] bg-slate-200 dark:bg-slate-800 rounded-3xl flex items-center justify-center relative overflow-hidden">

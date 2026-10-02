@@ -141,7 +141,7 @@ export default function PricingPage() {
                 <summary className="flex items-center justify-between font-bold text-lg text-slate-900 dark:text-white">
                   {faq.q}
                   <span className="transition group-open:rotate-180">
-                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                   </span>
                 </summary>
                 <p className="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed font-medium">
