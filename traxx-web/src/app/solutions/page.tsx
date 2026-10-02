@@ -77,13 +77,13 @@ export default function SolutionsPage() {
       {/* 3. BY BUSINESS TYPE */}
       <section className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold mb-4">Built for your industry.</h2>
+          <h2 className="text-4xl font-extrabold mb-4 text-blue-600 dark:text-blue-500">Built for your industry.</h2>
           <p className="text-lg text-slate-600 dark:text-slate-400">Whatever you move, Traxx tracks it.</p>
         </div>
         <div className="flex flex-wrap justify-center gap-6">
           {businessTypes.map((biz, i) => (
-            <div key={i} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex flex-col items-center text-center p-6 border border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900">
-              <div className="w-12 h-12 mb-4 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-300 shrink-0">
+            <div key={i} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex flex-col items-center text-center p-6 border-x border-b border-t-4 border-slate-200 border-t-blue-600 dark:border-slate-800 dark:border-t-blue-500 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 mb-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
                 <biz.icon className="w-6 h-6" />
               </div>
               <div>
