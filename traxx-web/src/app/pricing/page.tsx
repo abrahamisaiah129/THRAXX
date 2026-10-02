@@ -18,14 +18,15 @@ export default function PricingPage() {
 
       <div className="grid md:grid-cols-3 gap-8">
         {/* Freemium */}
-        <div className="p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col">
+        <div className="p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col mt-4 md:mt-8">
           <div className="mb-6">
-            <span className="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-full mb-4">1 to 5 riders</span>
+            <span className="inline-block px-3 py-1 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-full mb-4 border border-slate-200 dark:border-slate-700">1 to 5 riders</span>
             <h2 className="text-2xl font-bold mb-2">Freemium</h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm">Perfect for new businesses testing the waters.</p>
           </div>
-          <div className="mb-8">
+          <div className="mb-8 flex items-baseline gap-2">
             <span className="text-5xl font-black">Free</span>
+            <span className="text-slate-500 font-medium text-sm">/ Forever</span>
           </div>
           <ul className="space-y-4 mb-10 flex-1">
             {[
@@ -35,62 +36,64 @@ export default function PricingPage() {
               "Customer Tracking Links"
             ].map(feature => (
               <li key={feature} className="flex items-start gap-3 font-medium text-sm text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0" />
                 {feature}
               </li>
             ))}
           </ul>
-          <Button size="lg" className="w-full bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 shadow-none font-bold">Start Free</Button>
+          <Button variant="secondary" size="lg" className="w-full bg-slate-200 text-slate-900 hover:bg-slate-300 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 border-none shadow-none font-bold !text-slate-900 dark:!text-white">Start Free</Button>
         </div>
 
-        {/* Growth */}
-        <div className="p-8 rounded-[2rem] bg-blue-600 text-white shadow-xl relative overflow-hidden flex flex-col scale-105 z-10 border-4 border-blue-500/20">
-          <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-             <div className="text-9xl font-black">TX</div>
+        {/* Growth (Middle Card) */}
+        <div className="p-8 rounded-[2rem] bg-white dark:bg-[#0b1736] shadow-2xl relative overflow-visible flex flex-col scale-105 z-10 border border-slate-100 dark:border-slate-800">
+          <div className="absolute -top-3 right-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold px-4 py-1 rounded-full shadow-lg z-20">
+            Most Popular
           </div>
-          <div className="relative z-10 mb-6">
-            <span className="inline-block px-3 py-1 bg-blue-500 text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4">6 to 20 riders</span>
-            <h2 className="text-2xl font-bold mb-2 text-white">Growth</h2>
-            <p className="text-blue-100 text-sm">One flat rate for growing teams.</p>
+          {/* Subtle Glow */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-blue-400/20 via-purple-400/10 to-transparent blur-3xl pointer-events-none rounded-tr-[2rem]" />
+          
+          <div className="relative z-10 mb-6 mt-4">
+            <h2 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Growth</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-sm">All compliance & transaction rails.</p>
           </div>
-          <div className="relative z-10 mb-2">
-            <span className="text-5xl font-black text-white">₦15,000</span>
-            <span className="text-blue-200 font-medium ml-2">/ month</span>
+          <div className="relative z-10 mb-2 flex items-baseline gap-2">
+            <span className="text-5xl font-black text-slate-900 dark:text-white">₦15,000</span>
+            <span className="text-slate-500 font-medium text-sm">/ Monthly</span>
           </div>
-          <p className="text-blue-200 text-xs font-medium mb-8 relative z-10">Flat rate for anywhere between 6 and 20 riders.</p>
+          <p className="text-slate-500 text-xs font-medium mb-8 relative z-10 border-b border-slate-100 dark:border-slate-800 pb-4">Flat rate for anywhere between 6 and 20 riders.</p>
           
           <ul className="space-y-4 mb-10 flex-1 relative z-10">
-            <li className="flex items-start gap-3 font-medium text-sm text-blue-50">
-              <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
-              <span><strong className="text-white">Everything in Freemium</strong>, plus:</span>
+            <li className="flex items-start gap-3 font-medium text-sm text-slate-700 dark:text-slate-300">
+              <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+              <span><strong className="text-slate-900 dark:text-white">Everything in Freemium</strong>, plus:</span>
             </li>
             {[
               "Historical Route Replay",
               "Advanced Analytics",
               "Priority Email Support"
             ].map(feature => (
-              <li key={feature} className="flex items-start gap-3 font-medium text-sm text-blue-100">
-                <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
+              <li key={feature} className="flex items-start gap-3 font-medium text-sm text-slate-600 dark:text-slate-400">
+                <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0" />
                 {feature}
               </li>
             ))}
           </ul>
-          <Button size="lg" className="relative z-10 w-full bg-white text-blue-600 hover:bg-blue-50 shadow-none font-bold">Get Started</Button>
+          <Button variant="outline" size="lg" className="relative z-10 w-full bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 font-bold !text-slate-900 dark:!text-white">Get Started</Button>
         </div>
 
         {/* Enterprise */}
-        <div className="p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col">
+        <div className="p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col mt-4 md:mt-8">
           <div className="mb-6">
-            <span className="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-full mb-4">21+ riders</span>
+            <span className="inline-block px-3 py-1 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-full mb-4 border border-slate-200 dark:border-slate-700">21+ riders</span>
             <h2 className="text-2xl font-bold mb-2">Enterprise</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">For fleets across multiple branches.</p>
+            <p className="text-slate-600 dark:text-slate-400 text-sm">Tailored for institutions and large fleets.</p>
           </div>
-          <div className="mb-8">
+          <div className="mb-8 flex items-baseline gap-2">
             <span className="text-5xl font-black">Custom</span>
           </div>
           <ul className="space-y-4 mb-10 flex-1">
             <li className="flex items-start gap-3 font-medium text-sm text-slate-700 dark:text-slate-300">
-              <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0" />
               <span><strong className="text-slate-900 dark:text-white">Everything in Growth</strong>, plus:</span>
             </li>
             {[
@@ -100,12 +103,12 @@ export default function PricingPage() {
               "Custom Reporting & SLAs"
             ].map(feature => (
               <li key={feature} className="flex items-start gap-3 font-medium text-sm text-slate-600 dark:text-slate-400">
-                <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0" />
                 {feature}
               </li>
             ))}
           </ul>
-          <Button size="lg" className="w-full bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-none font-bold">Contact Sales</Button>
+          <Button variant="secondary" size="lg" className="w-full bg-slate-200 text-slate-900 hover:bg-slate-300 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 border-none shadow-none font-bold !text-slate-900 dark:!text-white">Contact Sales</Button>
         </div>
       </div>
 
