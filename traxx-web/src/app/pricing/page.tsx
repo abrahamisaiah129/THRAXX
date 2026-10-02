@@ -5,7 +5,10 @@ import { CTASection } from "@/components/landing/CTASection";
 
 export default function PricingPage() {
   return (
-    <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
+    <div className="bg-white dark:bg-[#020817] text-slate-900 dark:text-slate-50 min-h-screen">
+      <div className="h-[56px] md:h-[80px] w-full bg-white dark:bg-[#020817]"></div>
+      
+      <div className="pt-16 pb-24 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-20">
         <h1 className="text-5xl font-extrabold tracking-tight mb-6">Built around your fleet size.</h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
@@ -118,10 +121,10 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* Why teams upgrade */}
-      <div className="mt-12">
-        <CostOfChaosSection />
       </div>
+      
+      {/* Why teams upgrade */}
+      <CostOfChaosSection />
 
       {/* FAQ */}
       <section className="py-24 mt-12">
